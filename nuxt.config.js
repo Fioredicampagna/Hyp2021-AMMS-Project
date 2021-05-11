@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
-    // BASE_URL: '', // Development URL
+    // BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
+    BASE_URL: '', // Development URL
   },
   serverMiddleware: [
     {

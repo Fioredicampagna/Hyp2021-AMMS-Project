@@ -3,9 +3,6 @@
     <header>
       <h1>Areas of our company</h1>
       <h4>Subtitle</h4>
-      <div v-if="adUrl" class="ad">
-        <img :src="adUrl" alt="Advertisement" />
-      </div>
     </header>
     <section class="article-grid">
       <div
@@ -14,41 +11,38 @@
         class="article"
         @click="goToArea(`/areas/${area.name}`)"
       >
-        <article-mini
-          :title="article.title"
-          :summary="article.summary"
-          :image="article.image"
-        ></article-mini>
+        <p>{{ area.name }}</p>
+        <article-mini></article-mini>
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import ArticleMini from '~/components/blog/ArticleMini.vue'
 export default {
   components: {
     ArticleMini,
   },
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/articles`)
-    const articles = data
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/areas`)
+    const areas = data
     return {
-      articles,
+      areas,
     }
   },
-  data() {
-    return {
-      adUrl: '',
-    }
-  },
-  mounted() {
-    setTimeout(async () => {
-      const { data } = await axios.get('/api/ad')
-      this.adUrl = data.url
-    }, 1000)
-  },
+  // data() {
+  //   return {
+  //     adUrl: '',
+  //   }
+  // },
+  // mounted() {
+  //   setTimeout(async () => {
+  //     const { data } = await axios.get('/api/ad')
+  //     this.adUrl = data.url
+  //   }, 1000)
+  // },
   methods: {
     goToArea(path) {
       this.$router.push({ path })

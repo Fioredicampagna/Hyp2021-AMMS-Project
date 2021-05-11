@@ -1,7 +1,6 @@
 <template>
   <header class="header">
     <div class="header-content">
-      <!-- <div class="title"><h3>WebSite</h3></div> -->
       <nav class="right">
         <div
           v-for="(item, itemIndex) of menuOptions"
@@ -13,7 +12,7 @@
           <nuxt-link :to="item.path">
             {{ item.name }}
           </nuxt-link>
-          <div class="hover-panel" v-if="item.hoverable && item.isHovered">
+          <div v-if="item.hoverable && item.isHovered" class="hover-panel">
             <ul>
               <li
                 v-for="(subitem, subItemIndex) of item.data"
@@ -33,42 +32,59 @@
 
 <script>
 export default {
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get(`${process.env.BASE_URL}/api/areas-name`)
+    const landmarks = [
+      {
+        name: 'Home',
+        path: '/',
+        hoverable: false,
+        isHovered: false,
+      },
+      {
+        name: 'Areas',
+        path: '/areas',
+        hoverable: false,
+        isHovered: false,
+      },
+      {
+        name: 'Employees',
+        path: '/employees',
+        hoverable: false,
+        isHovered: false,
+      },
+      {
+        name: 'Contact Us',
+        path: '/contact-us',
+        hoverable: false,
+        isHovered: false,
+      },
+      {
+        name: 'Who we are',
+        path: '/who-we-are',
+        hoverable: false,
+        isHovered: false,
+      },
+    ]
+
+    for (const { name } in data)
+      landmarks.push({
+        name,
+        path: `/${name}`,
+        hoverable: false,
+        isHovered: false,
+      })
+
+    return {
+      landmarks,
+    }
+  },
   data() {
     return {
       menuOptions: [
         {
           name: 'Home',
           path: '/',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'PCs',
-          path: '/pcs',
-          hoverable: true,
-          isHovered: false,
-          data: [
-            {
-              name: 'Home',
-              path: '/',
-            },
-          ],
-        },
-        {
-          name: 'Smartphones',
-          path: '/smartphones',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Software',
-          path: '/software',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Cloud',
-          path: '/cloud',
           hoverable: false,
           isHovered: false,
         },
@@ -99,6 +115,19 @@ export default {
       ],
     }
   },
+  // methods: {
+  //   getLandmarks(menuOptions, areaNames) {
+  //     for (const areaName in areaNames)
+  //       menuOptions.push({
+  //         name: areaName.name,
+  //         path: `/${areaName.name}`,
+  //         hoverable: false,
+  //         isHovered: false,
+  //       })
+
+  //     return menuOptions
+  //   },
+  // },
 }
 </script>
 
