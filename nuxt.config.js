@@ -30,6 +30,11 @@ export default {
           'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap',
         rel: 'stylesheet',
       },
+      {
+        href:
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+        rel: 'stylesheet',
+      },
     ],
   },
 
@@ -58,5 +63,6 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {        
+  },
 }
