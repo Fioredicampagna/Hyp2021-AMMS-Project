@@ -19,6 +19,14 @@ async function init() {
     })
     return res.json(products)
   })
+
+  app.get('/types/:id', async (req, res) => {
+    const { id } = req.params
+    const type = await Type.findOne({
+      where : {id}
+    })
+    return res.json(type)
+  })
   
   // API to get all the areas
   app.get('/areas', async (req, res) => {

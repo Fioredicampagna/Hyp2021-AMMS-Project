@@ -1,14 +1,16 @@
 <template>
   <section class="container">
-    <div v-for="(product, productIndex) of products" :key="'products-' + productIndex" class="row">
-      <div class="col-md-6">
+    <header>
+      <h1>Products</h1>
+      <h4>Products in the type selected are shown.</h4>
+    </header>
+    <div class="row">
+      <div v-for="(product, productIndex) of products" :key="'products-' + productIndex" class="col-md-4">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png">
         <p style="text-align:center">{{ product.name }}</p>
-      </div>
-      <div class="col-md-6">
-         <p style="text-align:center" @click="goToArea(`/areas/${product.name}`)">{{ product.catchphrase }}</p>
-      </div>
+      </div>      
     </div>    
-  </section>
+  </section>   
 </template>
 <script>
 export default {
@@ -26,6 +28,7 @@ export default {
 </script>
 
 <style scoped>
+
 h4 {
   margin: 30px 0;
 }
@@ -48,6 +51,6 @@ img {
 }
 p {
   text-align: left;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 </style>
