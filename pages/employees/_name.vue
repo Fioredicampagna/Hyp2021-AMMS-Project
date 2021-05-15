@@ -5,11 +5,11 @@
       <img :src="employee.image" :alt="employee.presentation" />
     </header>
     <!-- Unsure about employee custom tag, should it be defined somewhere? -->
-    <employee>
+    <article>
       <p>
         {{ employee.presentation }}
       </p>
-    </employee>
+    </article>
     <!--section class="comments">
       <h3>Comments</h3>
       <h4 v-if="article.comments.length === 0">There are no comments</h4>

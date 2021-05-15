@@ -20,6 +20,7 @@ async function init() {
     return res.json(products)
   })
 
+
   app.get('/types/:id', async (req, res) => {
     const { id } = req.params
     const type = await Type.findOne({
@@ -40,7 +41,7 @@ async function init() {
     const { name } = req.params
     const area = await Area.findOne({
       where: { name },
-      // include: { model: Product }, // -> this is the way we "include" also comments inside Articles
+      include: { model: Product }, // -> this is the way we "include" also products inside Areas
     })
     return res.json(area)
   })
