@@ -1,45 +1,34 @@
 <template>
   <section class="container">
     <header>
-      <h1>{{ area.name }}</h1>
-      <h4>{{ area.introduction }}</h4>
-      <!--img :src="area.image" :alt="area.introduction" /-->
+      <h1>{{ type.name }}</h1>
+      <h4>{{ type.description }}</h4>
     </header>
-    <article>
-      <p>
-        {{ area.description }}
-      </p>
-    </article>
-    <section class="products">
-      <h3>Products</h3>
+    <div class="row">
       <div
-        v-for="(product, productIndex) of area.products"
+        v-for="(product, productIndex) of type.products"
         :key="'products-' + productIndex"
-        class="product"
+        class="col-md-4"
         @click="goToProduct(`/products/${product.name}`)"
       >
-        <!-- add product preview component -->
-        <div class="content">
-          {{ product.image }}
-          <nuxt-link :to="`/products/${product.name}`">
-            {{ product.name }}
-          </nuxt-link>
-        </div>
+        <img
+          src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png"
+        />
+        <p style="text-align: center">{{ product.name }}</p>
       </div>
-    </section>
+    </div>
   </section>
 </template>
 <script>
 export default {
   async asyncData({ $axios, route }) {
     const { name } = route.params
-    //console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(
-      `${process.env.BASE_URL}/api/areas/${name}`
+      `${process.env.BASE_URL}/api/types/${name}`
     )
-    const area = data
+    const type = data
     return {
-      area,
+      type,
     }
   },
   methods: {
@@ -73,6 +62,6 @@ img {
 }
 p {
   text-align: left;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 </style>

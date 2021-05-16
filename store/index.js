@@ -7,11 +7,11 @@ export const mutations = {
     state.landmarks = content
   },
   EXPAND_LANDMARK(state, landmarkIndex) {
-    if (state.landmarks[landmarkIndex].hoversable)
+    if (state.landmarks[landmarkIndex].hoverable)
       state.landmarks[landmarkIndex].isHovered = true
   },
   COLLAPSE_LANDMARK(state, landmarkIndex) {
-    if (state.landmarks[landmarkIndex].hoversable)
+    if (state.landmarks[landmarkIndex].hoverable)
       state.landmarks[landmarkIndex].isHovered = false
   },
 }

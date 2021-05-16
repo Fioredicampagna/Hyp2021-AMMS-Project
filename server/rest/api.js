@@ -12,23 +12,32 @@ async function init() {
   // Let's extract all the objects we need to perform queries inside the endpoints
   const { Area, Employee, Product, Type } = db._tables
 
-  app.get('/products/:product_name', async (req, res) => {
-    const { product_name } = req.params
-    const products = await Product.findAll({
-      where : {product_name}
+  app.get('/products/:name', async (req, res) => {
+    const { name } = req.params
+    const products = await Product.findOne({
+      where: { name },
     })
     return res.json(products)
   })
 
+  app.get('/types/:name', async (req, res) => {
+    const { name } = req.params
+    const type = await Type.findOne({
+      where: { name },
+      include: { model: Product },
+    })
+    return res.json(type)
+  })
 
   app.get('/types/:id', async (req, res) => {
     const { id } = req.params
     const type = await Type.findOne({
-      where : {id}
+      where: { id },
+      attributes: ['name'],
     })
     return res.json(type)
   })
-  
+
   // API to get all the areas
   app.get('/areas', async (req, res) => {
     const areas = await Area.findAll()
