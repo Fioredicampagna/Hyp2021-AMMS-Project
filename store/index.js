@@ -63,7 +63,7 @@ export const actions = {
     data.reverse().forEach(({ name }) =>
       landmarks.splice(1, 0, {
         name,
-        path: `/${name}`,
+        path: `/areas/${name}`,
         hoverable: false,
         isHovered: false,
       })
