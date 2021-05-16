@@ -6,8 +6,8 @@
           v-for="(item, itemIndex) of landmarks"
           :key="'menu-item-' + itemIndex"
           class="menu-item"
-          @mouseenter="onHover(itemIndex)"
-          @mouseleave="onHover(itemIndex)"
+          @mouseenter="expand(itemIndex)"
+          @mouseleave="collapse(itemIndex)"
         >
           <nuxt-link :to="item.path">
             {{ item.name }}
@@ -38,8 +38,11 @@ export default {
     ...mapState(['landmarks']),
   },
   methods: {
-    onHover(index) {
-      this.$store.commit('HOVER_LANDMARK', index)
+    expand(index) {
+      this.$store.commit('EXPAND_LANDMARK', index)
+    },
+    collapse(index) {
+      this.$store.commit('COLLAPSE_LANDMARK', index)
     },
   },
 }
