@@ -3,11 +3,11 @@
     <div class="header-content">
       <nav class="right">
         <div
-          v-for="(item, itemIndex) of menuOptions"
+          v-for="(item, itemIndex) of landmarks"
           :key="'menu-item-' + itemIndex"
           class="menu-item"
-          @mouseenter="item.isHovered = true"
-          @mouseleave="item.isHovered = false"
+          @mouseenter="onHover(itemIndex)"
+          @mouseleave="onHover(itemIndex)"
         >
           <nuxt-link :to="item.path">
             {{ item.name }}
@@ -31,103 +31,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.BASE_URL}/api/areas-name`)
-    const landmarks = [
-      {
-        name: 'Home',
-        path: '/',
-        hoverable: false,
-        isHovered: false,
-      },
-      {
-        name: 'Areas',
-        path: '/areas',
-        hoverable: false,
-        isHovered: false,
-      },
-      {
-        name: 'Employees',
-        path: '/employees',
-        hoverable: false,
-        isHovered: false,
-      },
-      {
-        name: 'Contact Us',
-        path: '/contact-us',
-        hoverable: false,
-        isHovered: false,
-      },
-      {
-        name: 'Who we are',
-        path: '/who-we-are',
-        hoverable: false,
-        isHovered: false,
-      },
-    ]
-
-    for (const { name } in data)
-      landmarks.push({
-        name,
-        path: `/${name}`,
-        hoverable: false,
-        isHovered: false,
-      })
-
-    return {
-      landmarks,
-    }
+  computed: {
+    ...mapState(['landmarks']),
   },
-  data() {
-    return {
-      menuOptions: [
-        {
-          name: 'Home',
-          path: '/',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Areas',
-          path: '/areas',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Employees',
-          path: '/employees',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Contact Us',
-          path: '/contact-us',
-          hoverable: false,
-          isHovered: false,
-        },
-        {
-          name: 'Who we are',
-          path: '/who-we-are',
-          hoverable: false,
-          isHovered: false,
-        },
-      ],
-    }
+  methods: {
+    onHover(index) {
+      this.$store.commit('HOVER_LANDMARK', index)
+    },
   },
-  // methods: {
-  //   getLandmarks(menuOptions, areaNames) {
-  //     for (const areaName in areaNames)
-  //       menuOptions.push({
-  //         name: areaName.name,
-  //         path: `/${areaName.name}`,
-  //         hoverable: false,
-  //         isHovered: false,
-  //       })
-
-  //     return menuOptions
-  //   },
-  // },
 }
 </script>
 
