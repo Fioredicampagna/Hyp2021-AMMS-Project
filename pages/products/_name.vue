@@ -1,6 +1,40 @@
 <template>
-  <section class="container">
-    <header>
+  <section class="container">    
+    <div class="row">
+      <div class="col-md-6">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+      </div>
+      <div class="col-md-6 centerize">
+        <h2>{{ products.name }}</h2>
+        <h4>{{ products.catchphrase }}</h4>
+        <p>{{ products.description }}</p>
+      </div>
+    </div>
+    <header class="related-products">
+      <h1>Other Products</h1>
+    </header>
+
+    <div class="row">      
+      <div class="col-md-3 col-xs-6">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+        <b>{{ products.name }}</b>
+      </div>     
+      <div class="col-md-3 col-xs-6">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+        <b>{{ products.name }}</b>
+      </div>   
+      <div class="col-md-3 col-xs-6">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+        <b>{{ products.name }}</b>
+      </div>   
+      <div class="col-md-3 col-xs-6">
+        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+        <b>{{ products.name }}</b>
+      </div>    
+    </div>
+
+
+    <!-- <header>
       <h1>{{ products.name }}</h1>
       <h4>{{ products.catchphrase }}</h4>
     </header>
@@ -11,7 +45,7 @@
       <p>
         {{ products.description }}
       </p>
-    </article>
+    </article> -->
   </section>
 </template>
 
@@ -37,6 +71,12 @@ export default {
 </script>
 
 <style scoped>
+.related-products{
+  margin-top: 10%;
+}
+.centerize{
+  align-self: center;
+}
 h4 {
   margin: 30px 0;
 }
