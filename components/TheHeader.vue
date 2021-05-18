@@ -3,23 +3,26 @@
     <div class="header-content">
       <nav class="right">
         <div
-          v-for="(item, itemIndex) of landmarks"
-          :key="'menu-item-' + itemIndex"
+          v-for="(landmark, landmarkIndex) of landmarks"
+          :key="'menu-item-' + landmarkIndex"
           class="menu-item"
-          @mouseenter="expand(itemIndex)"
-          @mouseleave="collapse(itemIndex)"
+          @mouseenter="expandLandmark(landmarkIndex)"
+          @mouseleave="collapseLandmark(landmarkIndex)"
         >
-          <nuxt-link :to="item.path">
-            {{ item.name }}
+          <nuxt-link :to="landmark.path">
+            {{ landmark.name }}
           </nuxt-link>
-          <div v-if="item.hoverable && item.isHovered" class="hover-panel">
+          <div
+            v-if="landmark.hoverable && landmark.isHovered"
+            class="hover-panel"
+          >
             <ul>
               <li
-                v-for="(subitem, subItemIndex) of item.data"
-                :key="'menu-subitem-' + subItemIndex"
+                v-for="(type, typeIndex) of landmark.types"
+                :key="'menu-subitem-' + typeIndex"
               >
-                <nuxt-link :to="subitem.path">
-                  {{ subitem.name }}
+                <nuxt-link :to="'/'">
+                  {{ type.name }}
                 </nuxt-link>
               </li>
             </ul>
@@ -38,10 +41,10 @@ export default {
     ...mapState(['landmarks']),
   },
   methods: {
-    expand(index) {
+    expandLandmark(index) {
       this.$store.commit('EXPAND_LANDMARK', index)
     },
-    collapse(index) {
+    collapseLandmark(index) {
       this.$store.commit('COLLAPSE_LANDMARK', index)
     },
   },

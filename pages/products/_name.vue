@@ -1,38 +1,34 @@
 <template>
-  <section class="container">    
+  <section class="container">
     <div class="row">
       <div class="col-md-6">
-        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
+        <img
+          src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png"
+        />
       </div>
       <div class="col-md-6 centerize">
-        <h2>{{ products.name }}</h2>
-        <h4>{{ products.catchphrase }}</h4>
-        <p>{{ products.description }}</p>
+        <h2>{{ product.name }}</h2>
+        <h4>{{ product.catchphrase }}</h4>
+        <p>{{ product.description }}</p>
       </div>
     </div>
     <header class="related-products">
       <h1>Other Products</h1>
     </header>
 
-    <div class="row">      
+    <div
+      v-for="(relatedProduct, relatedProductIndex) of product.products"
+      :key="'related-product-' + relatedProductIndex"
+      class="row"
+      @click="goToPath(`/products/${product.name}`)"
+    >
       <div class="col-md-3 col-xs-6">
-        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
-        <b>{{ products.name }}</b>
-      </div>     
-      <div class="col-md-3 col-xs-6">
-        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
-        <b>{{ products.name }}</b>
-      </div>   
-      <div class="col-md-3 col-xs-6">
-        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
-        <b>{{ products.name }}</b>
-      </div>   
-      <div class="col-md-3 col-xs-6">
-        <img src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png" />
-        <b>{{ products.name }}</b>
-      </div>    
+        <img
+          src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png"
+        />
+        <b>{{ relatedProduct.name }}</b>
+      </div>
     </div>
-
 
     <!-- <header>
       <h1>{{ products.name }}</h1>
@@ -57,13 +53,13 @@ export default {
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/products/${name}`
     )
-    const products = data
+    const product = data
     return {
-      products,
+      product,
     }
   },
   methods: {
-    goToType(path) {
+    goToPath(path) {
       this.$router.push({ path })
     },
   },
@@ -71,10 +67,10 @@ export default {
 </script>
 
 <style scoped>
-.related-products{
+.related-products {
   margin-top: 10%;
 }
-.centerize{
+.centerize {
   align-self: center;
 }
 h4 {

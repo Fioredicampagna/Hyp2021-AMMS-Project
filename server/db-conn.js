@@ -1,7 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
-const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
+// const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
+const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
 // const db = new Sequelize(
 //   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
 // )
@@ -43,6 +44,17 @@ function defineDatabaseStructure() {
     }
   )
 
+  const Feature = db.define(
+    'feature',
+    {
+      title: DataTypes.STRING,
+      description: DataTypes.TEXT,
+    },
+    {
+      underscored: true,
+    }
+  )
+
   const Employee = db.define(
     'employee',
     {
@@ -68,20 +80,22 @@ function defineDatabaseStructure() {
       underscored: true,
     }
   )
-  // Creating the 1 -> N association between Article and Comment
-  // More on association: https://sequelize.org/master/manual/assocs.html
+  // Creating associations
   Area.hasMany(Type, { foreignKey: 'type_name' })
   Area.hasMany(Employee, { foreignKey: 'employee_name' })
   Area.hasMany(Product, { foreignKey: 'product_name' })
   Employee.belongsToMany(Product, { through: 'product_name' })
   Type.hasMany(Product, { foreignKey: 'product_name' })
   Product.belongsToMany(Employee, { through: 'employee_name' })
+  Product.hasMany(Feature, { foreignKey: 'feature_id' })
+  Product.hasMany(Product, { foreignKey: 'product_name' })
 
   db._tables = {
     Area,
     Employee,
     Type,
     Product,
+    Feature,
   }
 }
 
@@ -218,6 +232,9 @@ async function insertFakeData() {
   await smartphone.addProduct(budgetV1.id)
   await smartphone.addProduct(budgetV2.id)
   await smartphone.addProduct(budgetV3.id)
+
+  await flagshipV1.addProduct(flagshipV2.id)
+  await flagshipV1.addProduct(flagshipV3.id)
 }
 
 /**

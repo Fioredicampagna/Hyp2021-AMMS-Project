@@ -33,7 +33,6 @@
 export default {
   async asyncData({ $axios, route }) {
     const { name } = route.params
-    //console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/areas/${name}`
     )

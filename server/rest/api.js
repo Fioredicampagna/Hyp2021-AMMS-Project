@@ -16,6 +16,7 @@ async function init() {
     const { name } = req.params
     const products = await Product.findOne({
       where: { name },
+      include: { model: Product, attributes: ['name'] },
     })
     return res.json(products)
   })
@@ -56,9 +57,12 @@ async function init() {
   })
 
   // API to get the areas names for the built of the landmarks.
-  app.get('/areas-name', async (req, res) => {
-    const names = await Area.findAll({ attributes: ['name'] })
-    return res.json(names)
+  app.get('/landmarks', async (req, res) => {
+    const landmarks = await Area.findAll({
+      attributes: ['name'],
+      include: { model: Type, attributes: ['name'] },
+    })
+    return res.json(landmarks)
   })
 
   // API to get all the employees
