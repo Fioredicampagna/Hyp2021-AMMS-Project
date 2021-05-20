@@ -1,8 +1,7 @@
 <template>
   <main class="container">
     <header>
-      <h1>Our employees</h1>
-      <h4>See our team</h4>
+      <h1>Our Team</h1>
     </header>
     <section class="employee-grid">
       <div
@@ -13,8 +12,8 @@
       >
         <employee-preview
           :name="employee.name"
-          :summary="employee.presentation"
-          :image="employee.image"
+          :designation="employee.designation"
+          :image="employee.image_name"
         ></employee-preview>
       </div>
     </section>
@@ -49,18 +48,22 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  margin-bottom: 30px;
+h1 {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  text-align: left;
 }
 .employee-grid {
   display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
-  grid-gap: 10px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 35px;
+  margin-top: 20px;
 }
 .employee {
   cursor: pointer;
   margin-bottom: 20px;
+  max-width: 350px;
+  max-height: 450px;
 }
 @media screen and (max-width: 600px) {
   .employee-grid {

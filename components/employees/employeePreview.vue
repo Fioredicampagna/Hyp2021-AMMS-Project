@@ -1,9 +1,14 @@
 <template>
-  <div class="employee-preview">
-    <div class="card">
-      <h3>{{ name }}</h3>
-      <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
-      <p>{{ summary }}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <!-- <div class="img" :style="{ 'background-image': `url(${image})` }"></div> -->
+        <img :src="require(`~/assets/employees/images/${image}.jpg`)" />
+        <h5>{{ name }}</h5>
+        <h6>{{ designation }}</h6>
+        <!-- <img src="@/assets/employees/images/emp-1.jpg">  -->
+        <!-- <p>{{ summary }}</p> -->
+      </div>
     </div>
   </div>
 </template>
@@ -13,32 +18,28 @@ export default {
   props: {
     name: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
-    summary: { type: String, default: () => '' },
+    designation: { type: String, default: () => '' },
   },
 }
 </script>
 
 <style scoped>
-.card {
-  padding: 20px 10px;
-  border: 1px solid grey;
-  border-radius: 4px;
-}
-h3 {
-  margin-bottom: 10px;
-}
 p {
   height: 60px;
 }
 
-.img {
-  width: 100%;
-  height: 200px;
-  max-width: 600px;
+.col-sm {
+  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+}
+
+img {
+  width: 80%;
+  height: 350px;
+  max-width: 400px;
   margin: auto;
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 </style>

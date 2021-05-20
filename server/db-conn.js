@@ -7,6 +7,7 @@ const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
 //   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
 // )
 
+
 // Production
 // const pg = require('pg')
 // pg.defaults.ssl = true
@@ -59,11 +60,13 @@ function defineDatabaseStructure() {
     'employee',
     {
       name: DataTypes.STRING,
+      designation: DataTypes.STRING,
       presentation: DataTypes.TEXT,
-      /* image: {
-        type: DataTypes.STRING,
+      image_name: DataTypes.STRING,
+      image: {
+        type: DataTypes.BLOB,
         allowNull: true,
-      }, */
+      },
     },
     {
       underscored: true,
@@ -103,7 +106,7 @@ function defineDatabaseStructure() {
  * Function to insert some fake info in the database
  */
 async function insertFakeData() {
-  const { Area, Product, Type } = db._tables
+  const { Area, Product, Type, Employee } = db._tables
   await Area.create({
     name: 'PCs',
     introduction: 'PCs area INTRODUCTION',
@@ -211,6 +214,65 @@ async function insertFakeData() {
       That means you get a long-lasting battery, expandable storage, multiple cameras, 
       a super-crisp display and blazing-fast 5G speed`,
     catchphrase: 'Introducing the Budget V1.',
+  })
+
+  const employee1 = await Employee.create({
+    name: 'Tom Hanks',
+    designation: 'Founder and Cheif Executive Officer',
+    presentation: `Thomas Jeffrey Hanks is an American actor and filmmaker. Known for both his comedic and dramatic roles, he is one of the most popular and recognizable film stars worldwide, and is regarded as an American cultural icon. Hanks's films have grossed more than $4.9 billion in North America and more than $9.96 billion worldwide, making him the fourth-highest-grossing actor in North America.
+
+      Hanks made his breakthrough with leading roles in the comedies Splash and Big. He won two consecutive Academy Awards for Best Actor for starring as a gay lawyer suffering from AIDS in Philadelphia and the title character in Forrest Gump. Hanks collaborated with film director Steven Spielberg on five films: Saving Private Ryan, Catch Me If You Can, The Terminal, Bridge of Spies, and The Post, as well as the 2001 miniseries Band of Brothers, which launched him as a director, producer, and screenwriter. Hanks's other films include the romantic comedies Sleepless in Seattle and You've Got Mail; the dramas Apollo 13, The Green Mile, Cast Away, Road to Perdition, and Cloud Atlas; and the biographical dramas Charlie Wilson's War, Captain Phillips, Saving Mr. Banks, Sully, A Beautiful Day in the Neighborhood, and News of the World. He has also appeared as the title character in the Robert Langdon film series, and has voiced Sheriff Woody in the Toy Story film series.`,
+    image_name: 'tom_hanks',
+  })
+
+  const employee2 = await Employee.create({
+    name: 'Will Smith',
+    designation: 'Founder and Cheif product Officer',
+    presentation: `Willard Carroll Smith Jr is an American actor, rapper, and film producer. Smith has been nominated for five Golden Globe Awards and two Academy Awards, and has won four Grammy Awards.
+
+      During the late 1980s, he achieved modest fame as a rapper under the name The Fresh Prince. In 1990, his popularity increased dramatically when he began starring in the NBC television series The Fresh Prince of Bel-Air, which ran for six seasons until 1996. After the series ended, Smith transitioned from television to film and went on to star in numerous blockbuster films. He is the only actor to have starred in eight consecutive films which grossed over $100 million in the United States box office, eleven consecutive films which grossed over $150 million internationally, and eight consecutive films which opened at the number one spot in the US box office tally.
+
+      Smith has been ranked as the most bankable star worldwide by Forbes. In April 2007, Newsweek called him "the most powerful actor in Hollywood". As of 2014, 17 of the 21 films in which he has had leading roles have accumulated worldwide gross earnings of over $100 million each, with five taking in over $500 million each in global box office receipts. As of 2016, his films have grossed $7.5 billion at the global box office. For his performances as boxer Muhammad Ali in Ali and stockbroker Chris Gardner in The Pursuit of Happyness, Smith received Academy Award nominations for Best Actor.`,
+    image_name: 'will_smith',
+  })
+
+  const employee3 = await Employee.create({
+    name: 'Denzel Washington',
+    designation: 'Cheif Technology Officer',
+    presentation: `Denzel Hayes Washington Jr. is an American actor, director, and producer. 
+      He has been described as an actor who reconfigured "the concept of classic movie stardom," 
+      mostly associating with characters defined by their grace, dignity, humanity, and inner strength.`,
+    image_name: 'denzel_washington',
+  })
+
+  const employee4 = await Employee.create({
+    name: 'Leonardo DiCaprio',
+    designation: 'Cheif Business Officer',
+    presentation: `Leonardo Wilhelm DiCaprio is an American actor, film producer, and environmentalist. 
+      He has often played unconventional roles, particularly in biopics and period films. 
+      As of 2019, his films have grossed $7.2 billion worldwide, 
+      and he has placed eight times in annual rankings of the world's highest-paid actors.`,
+    image_name: 'leonardo_dicaprio',
+  })
+
+  const employee5 = await Employee.create({
+    name: 'Morgan Freeman',
+    designation: 'Cheif Marketing Officer',
+    presentation: `Morgan Freeman is an American actor, director, and narrator. 
+      He has appeared in a range of film genres portraying character roles and is particularly known for his distinctive deep voice. 
+      Freeman is the recipient of various accolades, including an Academy Award, a Golden Globe Award, and a Screen Actors Guild`,
+    image_name: 'morgan_freeman',
+  })
+
+  const employee6 = await Employee.create({
+    name: 'Brad Pitt',
+    designation: 'Cheif Operating Officer',
+    presentation: `William Bradley Pitt is an American actor and film producer. He has received multiple awards, including two Golden Globe Awards and an Academy Award for his acting, in addition to another Academy Award, another Golden Globe Award and a Primetime Emmy Award as a producer under his production company, Plan B Entertainment.
+
+      Pitt first gained recognition as a cowboy hitchhiker in the road film Thelma & Louise. His first leading roles in big-budget productions came with the drama films A River Runs Through It and Legends of the Fall, and the horror film Interview with the Vampire. He gave critically acclaimed performances in the crime thriller Seven and the science fiction film 12 Monkeys, the latter earning him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination.
+
+      Pitt starred in Fight Club and the heist film Ocean's Eleven, as well as its sequels, Ocean's Twelve and Ocean's Thirteen. His greatest commercial successes have been Ocean's Eleven , Troy, Mr. & Mrs. Smith, World War Z, and Once Upon a Time in Hollywood, for which he won a second Golden Globe Award and the Academy Award for Best Supporting Actor. Pitt's other Academy Award nominated performances were in The Curious Case of Benjamin Button and Moneyball. He produced The Departed and 12 Years a Slave, both of which won the Academy Award for Best Picture, and also The Tree of Life, Moneyball, and The Big Short, all of which were nominated for Best Picture. Alongside George Clooney, Pitt is one of two actors to have won Academy Awards for both Best Supporting Actor and Best Picture.`,
+    image_name: 'brad_pitt',
   })
 
   await smartphone.addType(flagship)
