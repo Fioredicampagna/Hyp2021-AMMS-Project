@@ -4,23 +4,13 @@
       <h1>{{ type.name }}</h1>
       <h4>{{ type.description }}</h4>
     </header>
-    <div class="row">
-      <div
-        v-for="(product, productIndex) of type.products"
-        :key="'products-' + productIndex"
-        class="col-md-4"
-        @click="goToProduct(`/products/${product.name}`)"
-      >
-        <img
-          src="@/assets/producttypes/images/4c04f6649f009a5a4832a95f6e49b2fb.png"
-        />
-        <p style="text-align: center">{{ product.name }}</p>
-      </div>
-    </div>
+    <product-links :products="type.products"></product-links>
   </section>
 </template>
 <script>
+import productLinks from '../../components/products/productLinks.vue'
 export default {
+  components: { productLinks },
   async asyncData({ $axios, route }) {
     const { name } = route.params
     const { data } = await $axios.get(

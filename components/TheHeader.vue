@@ -21,7 +21,7 @@
                 v-for="(type, typeIndex) of landmark.types"
                 :key="'menu-subitem-' + typeIndex"
               >
-                <nuxt-link :to="'/'">
+                <nuxt-link :to="`/producttypes/${type.name}`">
                   {{ type.name }}
                 </nuxt-link>
               </li>

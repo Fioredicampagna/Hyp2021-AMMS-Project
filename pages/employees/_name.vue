@@ -13,38 +13,29 @@
           {{ employee.presentation }}
         </p>
       </section>
-    </div>
-    <!-- Unsure about employee custom tag, should it be defined somewhere? -->
-    <!-- <article>
-      <p>
-        {{ employee.presentation }}
-      </p>
-    </article> -->
-    <!--section class="comments">
-      <h3>Comments</h3>
-      <h4 v-if="article.comments.length === 0">There are no comments</h4>
-      <div
-        v-for="(comment, commentIndex) of article.comments"
-        :key="'comments-' + commentIndex"
-        class="comment"
+
+      <nuxt-link
+        v-if="employee.area !== null"
+        style="text-align: center"
+        class="link"
+        :to="`/areas/${employee.area.name}`"
       >
-        <div class="content">
-          {{ comment.content }}
-        </div>
-        <div class="date">
-          Posted on: {{ new Date(comment.createdAt).getDate() }}/{{
-            new Date(comment.createdAt).getMonth()
-          }}/{{ new Date(comment.createdAt).getFullYear() }}
-        </div>
-      </div>
-    </section-->
+        {{ employee.area.name }}
+      </nuxt-link>
+
+      <section v-if="employee.products.length != 0">
+        <h2>Has worked on:</h2>
+        <product-links :products="employee.products"></product-links>
+      </section>
+    </div>
   </div>
 </template>
 <script>
+import productLinks from '../../components/products/productLinks.vue'
 export default {
+  components: { productLinks },
   async asyncData({ $axios, route }) {
     const { name } = route.params
-    console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/employees/${name}`
     )
@@ -63,20 +54,7 @@ h4 {
 .col-md-7 {
   box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
 }
-/* .comments {
-  margin-top: 60px;
-  text-align: left;
-}
-.comment {
-  padding: 20px;
-  background: #f7f7f7;
-  border: 1px solid darkgray;
-  margin: 10px;
-}
-.comment .date {
-  color: darkgray;
-  font-size: 14px;
-} */
+
 .container {
   position: relative;
   padding-left: 6.5%;

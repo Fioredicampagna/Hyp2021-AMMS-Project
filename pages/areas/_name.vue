@@ -12,25 +12,36 @@
     </article>
     <section class="products">
       <h3>Products</h3>
+      <product-links :products="area.products"></product-links>
+    </section>
+    <section class="products">
+      <h3>Employees</h3>
+      <employee-links :employees="area.employees"></employee-links>
+    </section>
+    <section v-if="area.types.length != 0">
+      <h4>Types</h4>
       <div
-        v-for="(product, productIndex) of area.products"
-        :key="'products-' + productIndex"
-        class="product"
-        @click="goToProduct(`/products/${product.name}`)"
+        v-for="(type, typeIndex) of area.types"
+        :key="'type-' + typeIndex"
+        class="col-md-4"
+        @click="goToPath(`/producttypes/${type.name}`)"
       >
-        <!-- add product preview component -->
-        <div class="content">
-          {{ product.image }}
-          <nuxt-link :to="`/products/${product.name}`">
-            {{ product.name }}
-          </nuxt-link>
-        </div>
+        <nuxt-link
+          style="text-align: center"
+          class="link"
+          :to="`/producttypes/${type.name}`"
+        >
+          {{ type.name }}
+        </nuxt-link>
       </div>
     </section>
   </section>
 </template>
 <script>
+import EmployeeLinks from '../../components/employees/employeeLinks.vue'
+import productLinks from '../../components/products/productLinks.vue'
 export default {
+  components: { productLinks, EmployeeLinks },
   async asyncData({ $axios, route }) {
     const { name } = route.params
     const { data } = await $axios.get(
@@ -42,7 +53,7 @@ export default {
     }
   },
   methods: {
-    goToProduct(path) {
+    goToPath(path) {
       this.$router.push({ path })
     },
   },
@@ -53,19 +64,10 @@ export default {
 h4 {
   margin: 30px 0;
 }
-.comments {
-  margin-top: 60px;
-  text-align: left;
-}
-.comment {
+.link {
+  color: cadetblue;
   padding: 20px;
-  background: #f7f7f7;
-  border: 1px solid darkgray;
   margin: 10px;
-}
-.comment .date {
-  color: darkgray;
-  font-size: 14px;
 }
 img {
   max-width: 600px;

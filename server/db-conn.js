@@ -2,11 +2,10 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 // const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
-const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
-// const db = new Sequelize(
-//   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
-// )
-
+//const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
+const db = new Sequelize(
+  'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
+)
 
 // Production
 // const pg = require('pg')
@@ -39,6 +38,10 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       catchphrase: DataTypes.STRING,
+      image: {
+        type: DataTypes.BLOB,
+        allowNull: true,
+      },
     },
     {
       underscored: true,
@@ -84,14 +87,21 @@ function defineDatabaseStructure() {
     }
   )
   // Creating associations
-  Area.hasMany(Type, { foreignKey: 'type_name' })
-  Area.hasMany(Employee, { foreignKey: 'employee_name' })
-  Area.hasMany(Product, { foreignKey: 'product_name' })
-  Employee.belongsToMany(Product, { through: 'product_name' })
-  Type.hasMany(Product, { foreignKey: 'product_name' })
-  Product.belongsToMany(Employee, { through: 'employee_name' })
-  Product.hasMany(Feature, { foreignKey: 'feature_id' })
-  Product.hasMany(Product, { foreignKey: 'product_name' })
+  Area.hasMany(Type)
+  Area.hasMany(Employee)
+  Area.hasMany(Product)
+
+  Employee.belongsTo(Area, { foreignKey: 'area_id' })
+  Employee.belongsToMany(Product, { through: 'ProductEmployee' })
+
+  Type.hasMany(Product)
+  Type.belongsTo(Area, { foreignKey: 'area_id' })
+
+  Product.belongsToMany(Employee, { through: 'ProductEmployee' })
+  Product.hasMany(Feature)
+  Product.hasMany(Product)
+  Product.belongsTo(Type)
+  Product.belongsTo(Area, { foreignKey: 'area_id' })
 
   db._tables = {
     Area,

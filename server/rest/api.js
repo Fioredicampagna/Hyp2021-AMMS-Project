@@ -16,7 +16,12 @@ async function init() {
     const { name } = req.params
     const products = await Product.findOne({
       where: { name },
-      include: { model: Product, attributes: ['name'] },
+      include: [
+        { model: Product, attributes: ['name'] },
+        { model: Type, attributes: ['name'] },
+        { model: Employee, attributes: ['name', 'image'] },
+        { model: Area, attributes: ['name'] },
+      ],
     })
     return res.json(products)
   })
@@ -25,7 +30,7 @@ async function init() {
     const { name } = req.params
     const type = await Type.findOne({
       where: { name },
-      include: { model: Product },
+      include: [{ model: Product }, { model: Area, attributes: ['name'] }],
     })
     return res.json(type)
   })
@@ -51,7 +56,11 @@ async function init() {
     const { name } = req.params
     const area = await Area.findOne({
       where: { name },
-      include: { model: Product }, // -> this is the way we "include" also products inside Areas
+      include: [
+        { model: Product, attributes: ['name', 'image'] },
+        { model: Employee, attributes: ['name', 'image'] },
+        { model: Type, attributes: ['name'] },
+      ], // -> this is the way we "include" also products inside Areas
     })
     return res.json(area)
   })
@@ -76,7 +85,7 @@ async function init() {
     const { name } = req.params
     const employee = await Employee.findOne({
       where: { name },
-      // include: { model: Product }, // -> this is the way we "include" also comments inside Articles
+      include: [{ model: Product }, { model: Area, attributes: ['name'] }], // -> this is the way we "include" also comments inside Articles
     })
     return res.json(employee)
   })
