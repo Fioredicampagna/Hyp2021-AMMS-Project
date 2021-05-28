@@ -30,6 +30,14 @@ export default {
       title: 'A WebSite - About',
     }
   },
+  created() {
+    const breadcrumbs = [
+      {
+        name: 'about',
+      },
+    ]
+    this.$store.commit('SET_BREADCRUMBS', breadcrumbs)
+  },
 }
 </script>
 

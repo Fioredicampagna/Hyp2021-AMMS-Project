@@ -27,9 +27,16 @@ export default {
   components: {
     EmployeePreview,
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, store }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/employees`)
     const employees = data
+    const breadcrumbs = [
+      {
+        name: 'employees',
+      },
+    ]
+    store.commit('SET_BREADCRUMBS', breadcrumbs)
+
     return {
       employees,
     }

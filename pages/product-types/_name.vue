@@ -7,16 +7,32 @@
     <product-links :products="type.products"></product-links>
   </section>
 </template>
+
 <script>
 import productLinks from '../../components/products/productLinks.vue'
 export default {
   components: { productLinks },
-  async asyncData({ $axios, route }) {
+  async asyncData({ $axios, route, store }) {
     const { name } = route.params
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/types/${name}`
     )
+
     const type = data
+    const breadcrumbs = [
+      {
+        name: 'areas',
+        path: '/areas',
+      },
+      {
+        name: type.area.name,
+        path: '/areas/' + type.area.name,
+      },
+      {
+        name: type.name,
+      },
+    ]
+    store.commit('SET_BREADCRUMBS', breadcrumbs)
     return {
       type,
     }

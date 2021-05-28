@@ -1,15 +1,19 @@
 <template>
   <div>
     <the-header></the-header>
+    <the-breadcrumbs></the-breadcrumbs>
     <Nuxt />
   </div>
 </template>
 
 <script>
 import TheHeader from '~/components/TheHeader.vue'
+import TheBreadcrumbs from '~/components/TheBreadcrumbs.vue'
+
 export default {
   components: {
     TheHeader,
+    TheBreadcrumbs,
   },
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <header class="header">
     <div class="header-content">
-      <nav class="right">
+      <nav class="center">
         <div
           v-for="(landmark, landmarkIndex) of landmarks"
-          :key="'menu-item-' + landmarkIndex"
-          class="menu-item"
+          :key="'landmark-' + landmarkIndex"
+          class="landmark"
           @mouseenter="expandLandmark(landmarkIndex)"
           @mouseleave="collapseLandmark(landmarkIndex)"
         >
@@ -21,7 +21,7 @@
                 v-for="(type, typeIndex) of landmark.types"
                 :key="'menu-subitem-' + typeIndex"
               >
-                <nuxt-link :to="`/producttypes/${type.name}`">
+                <nuxt-link :to="`/product-types/${type.name}`">
                   {{ type.name }}
                 </nuxt-link>
               </li>
@@ -65,7 +65,7 @@ export default {
   margin: auto;
   align-items: center;
 }
-.right {
+.center {
   display: flex;
   justify-content: space-between;
   width: 100%;

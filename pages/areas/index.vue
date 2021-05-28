@@ -25,24 +25,21 @@ export default {
   components: {
     ArticleMini,
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, store }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/areas`)
     const areas = data
+
+    const breadcrumbs = [
+      {
+        name: 'areas',
+      },
+    ]
+    store.commit('SET_BREADCRUMBS', breadcrumbs)
+
     return {
       areas,
     }
   },
-  // data() {
-  //   return {
-  //     adUrl: '',
-  //   }
-  // },
-  // mounted() {
-  //   setTimeout(async () => {
-  //     const { data } = await axios.get('/api/ad')
-  //     this.adUrl = data.url
-  //   }, 1000)
-  // },
   methods: {
     goToArea(path) {
       this.$router.push({ path })

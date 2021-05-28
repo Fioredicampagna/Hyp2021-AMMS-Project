@@ -47,6 +47,19 @@
 	</form-->
 </template>
 
+<script>
+export default {
+  created() {
+    const breadcrumbs = [
+      {
+        name: 'contact us',
+      },
+    ]
+    this.$store.commit('SET_BREADCRUMBS', breadcrumbs)
+  },
+}
+</script>
+
 <style type="text/css">
 .fld-error .msg-error {
   display: block;

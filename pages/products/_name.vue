@@ -49,13 +49,33 @@ import EmployeeLinks from '../../components/employees/employeeLinks.vue'
 import productLinks from '../../components/products/productLinks.vue'
 export default {
   components: { productLinks, EmployeeLinks },
-  async asyncData({ $axios, route }) {
+  async asyncData({ $axios, route, store }) {
     const { name } = route.params
     // console.log('this url', process.env.BASE_URL)
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/products/${name}`
     )
     const product = data
+    const breadcrumbs = [
+      {
+        name: 'areas',
+        path: '/areas',
+      },
+      {
+        name: product.area.name,
+        path: '/areas/' + product.area.name,
+      },
+      {
+        name: product.name,
+      },
+    ]
+    if (product.type != null)
+      breadcrumbs.splice(2, 0, {
+        name: product.type.name,
+        path: '/product-types/' + product.type.name,
+      })
+
+    store.commit('SET_BREADCRUMBS', breadcrumbs)
     return {
       product,
     }

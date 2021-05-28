@@ -21,7 +21,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  created() {
+    const breadcrumbs = []
+    this.$store.commit('SET_BREADCRUMBS', breadcrumbs)
+  },
+}
 </script>
 
 <style scoped>

@@ -24,7 +24,7 @@
         v-for="(type, typeIndex) of area.types"
         :key="'type-' + typeIndex"
         class="col-md-4"
-        @click="goToPath(`/producttypes/${type.name}`)"
+        @click="goToPath(`/product-types/${type.name}`)"
       >
         <nuxt-link
           style="text-align: center"
@@ -42,11 +42,22 @@ import EmployeeLinks from '../../components/employees/employeeLinks.vue'
 import productLinks from '../../components/products/productLinks.vue'
 export default {
   components: { productLinks, EmployeeLinks },
-  async asyncData({ $axios, route }) {
-    const { name } = route.params
-    const { data } = await $axios.get(
+  async asyncData(ctx) {
+    const { name } = ctx.route.params
+    const { data } = await ctx.$axios.get(
       `${process.env.BASE_URL}/api/areas/${name}`
     )
+    const breadcrumbs = [
+      {
+        name: 'areas',
+        path: '/areas',
+      },
+      {
+        name,
+      },
+    ]
+    ctx.store.commit('SET_BREADCRUMBS', breadcrumbs)
+
     const area = data
     return {
       area,

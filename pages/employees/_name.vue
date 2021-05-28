@@ -34,12 +34,22 @@
 import productLinks from '../../components/products/productLinks.vue'
 export default {
   components: { productLinks },
-  async asyncData({ $axios, route }) {
+  async asyncData({ $axios, route, store }) {
     const { name } = route.params
     const { data } = await $axios.get(
       `${process.env.BASE_URL}/api/employees/${name}`
     )
     const employee = data
+    const breadcrumbs = [
+      {
+        name: 'employees',
+        path: '/employees',
+      },
+      {
+        name: employee.name,
+      },
+    ]
+    store.commit('SET_BREADCRUMBS', breadcrumbs)
     return {
       employee,
     }
