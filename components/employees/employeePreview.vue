@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm">
         <!-- <div class="img" :style="{ 'background-image': `url(${image})` }"></div> -->
-        <img :src="require(`~/assets/employees/images/${image}.jpg`)" />
+        <img :src="require(`~${image}`)" />
         <h5>{{ name }}</h5>
         <h6>{{ designation }}</h6>
         <!-- <img src="@/assets/employees/images/emp-1.jpg">  -->

@@ -13,7 +13,7 @@
         <employee-preview
           :name="employee.name"
           :designation="employee.designation"
-          :image="employee.image_name"
+          :image="employee.image"
         ></employee-preview>
       </div>
     </section>

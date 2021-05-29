@@ -2,18 +2,18 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 // const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
-const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
+// const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
 // const db = new Sequelize(
 //   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
 // )
 
 // Production
-// const pg = require('pg')
-// pg.defaults.ssl = true
-// const db = new Sequelize(process.env.DATABASE_URL, {
-//   ssl: true,
-//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-// })
+const pg = require('pg')
+pg.defaults.ssl = true
+const db = new Sequelize(process.env.DATABASE_URL, {
+  ssl: true,
+  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+})
 
 /**
  * Function to define the structure of the database
@@ -25,7 +25,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       introduction: DataTypes.TEXT,
-      // image: DataTypes.STRING,
+      image: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -38,10 +38,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       description: DataTypes.TEXT,
       catchphrase: DataTypes.STRING,
-      image: {
-        type: DataTypes.BLOB,
-        allowNull: true,
-      },
+      image: DataTypes.STRING,
     },
     {
       underscored: true,
@@ -65,11 +62,7 @@ function defineDatabaseStructure() {
       name: DataTypes.STRING,
       designation: DataTypes.STRING,
       presentation: DataTypes.TEXT,
-      image_name: DataTypes.STRING,
-      image: {
-        type: DataTypes.BLOB,
-        allowNull: true,
-      },
+      image: DataTypes.STRING,
     },
     {
       underscored: true,

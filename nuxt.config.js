@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    // BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
-    BASE_URL: '', // Development URL
+    BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
+    // BASE_URL: '', // Development URL
   },
   serverMiddleware: [
     {
@@ -63,6 +63,5 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {        
-  },
+  build: {},
 }

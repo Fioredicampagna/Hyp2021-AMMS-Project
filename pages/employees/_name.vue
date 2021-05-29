@@ -2,9 +2,7 @@
   <div class="container">
     <div class="row">
       <section class="col-md-3">
-        <img
-          :src="require(`~/assets/employees/images/${employee.image_name}.jpg`)"
-        />
+        <img :src="require(`~${employee.image}`)" />
         <h4>{{ employee.name }}</h4>
       </section>
 
