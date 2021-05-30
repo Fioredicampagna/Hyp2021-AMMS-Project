@@ -19,6 +19,7 @@ export default {
     )
 
     const type = data
+    console.log(type);
     const breadcrumbs = [
       {
         name: 'areas',
