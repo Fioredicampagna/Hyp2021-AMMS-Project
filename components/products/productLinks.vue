@@ -10,7 +10,7 @@
         <!--div class="content">
           {{ product.image }}
         </div-->
-        <img :src="require(`~${product.image}`)" />
+        <img :src="require(`~/assets/${product.image}`)" />
         <nuxt-link
           style="text-align: center"
           class="link"

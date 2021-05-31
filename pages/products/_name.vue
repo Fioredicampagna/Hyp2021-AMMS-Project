@@ -2,7 +2,11 @@
   <section class="container">
     <div class="row">
       <div class="col-md-6">
-        <img img :src="require(`~${product.image}`)" />
+        <img
+          img
+          :src="require(`~/assets/${product.image}`)"
+          :alt="product.alt"
+        />
       </div>
       <div class="col-md-6 centerize">
         <h2>{{ product.name }}</h2>

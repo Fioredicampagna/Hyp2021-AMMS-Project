@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    //BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
-     BASE_URL: 'http://localhost:3000', // Development URL
+    BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
+    //BASE_URL: 'http://localhost:3000', // Development URL
   },
   serverMiddleware: [
     {
@@ -64,6 +64,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-agile']
+    transpile: ['vue-agile'],
   },
 }
