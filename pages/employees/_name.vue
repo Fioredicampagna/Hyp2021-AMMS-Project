@@ -28,8 +28,10 @@
     </div>
   </div>
 </template>
+
 <script>
 import productLinks from '../../components/products/productLinks.vue'
+
 export default {
   components: { productLinks },
   async asyncData({ $axios, route, store }) {
@@ -50,6 +52,20 @@ export default {
     store.commit('SET_BREADCRUMBS', breadcrumbs)
     return {
       employee,
+    }
+  },
+  head() {
+    return {
+      title: this.employee.name + ' - AMMS Employees',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: this.employee.name + ' description',
+          name: 'description',
+          content: '',
+        },
+      ],
     }
   },
 }

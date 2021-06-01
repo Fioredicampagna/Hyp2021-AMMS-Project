@@ -4,6 +4,20 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'AMMS Who We Are',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'Who We Are description',
+          name: 'About description',
+          content: '',
+        },
+      ],
+    }
+  },
   created() {
     const breadcrumbs = [
       {

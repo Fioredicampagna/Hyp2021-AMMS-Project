@@ -27,7 +27,16 @@
 export default {
   head() {
     return {
-      title: 'A WebSite - About',
+      title: 'AMMS About',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: this.product.name + ' description',
+          name: 'About description',
+          content: '',
+        },
+      ],
     }
   },
   created() {

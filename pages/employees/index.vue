@@ -21,8 +21,8 @@
 </template>
 
 <script>
-// import axios from 'axios'
 import EmployeePreview from '~/components/employees/employeePreview.vue'
+
 export default {
   components: {
     EmployeePreview,
@@ -44,6 +44,20 @@ export default {
   data() {
     return {
       adUrl: '',
+    }
+  },
+  head() {
+    return {
+      title: 'AMMS Employees',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'Employees description',
+          name: 'description',
+          content: '',
+        },
+      ],
     }
   },
   methods: {

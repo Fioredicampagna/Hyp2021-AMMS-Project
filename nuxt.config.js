@@ -2,8 +2,8 @@ export default {
   ssr: true,
   target: 'server',
   env: {
-    BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
-    //BASE_URL: 'http://localhost:3000', // Development URL
+    // BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
+    BASE_URL: 'http://localhost:3000', // Development URL
   },
   serverMiddleware: [
     {
@@ -13,7 +13,7 @@ export default {
   ],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Hypermedia 2021 Amaru-Merz-Morkoc-Sadineni',
+    title: 'AMMS',
     htmlAttrs: {
       lang: 'en',
     },

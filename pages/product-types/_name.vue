@@ -10,6 +10,7 @@
 
 <script>
 import productLinks from '../../components/products/productLinks.vue'
+
 export default {
   components: { productLinks },
   async asyncData({ $axios, route, store }) {
@@ -19,7 +20,6 @@ export default {
     )
 
     const type = data
-    console.log(type);
     const breadcrumbs = [
       {
         name: 'areas',
@@ -36,6 +36,20 @@ export default {
     store.commit('SET_BREADCRUMBS', breadcrumbs)
     return {
       type,
+    }
+  },
+  head() {
+    return {
+      title: this.type.area.name + ': ' + this.type.name + ' - AMMS Employees',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: this.type.name + ' description',
+          name: 'description',
+          content: '',
+        },
+      ],
     }
   },
   methods: {

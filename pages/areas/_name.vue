@@ -37,9 +37,11 @@
     </section>
   </section>
 </template>
+
 <script>
 import EmployeeLinks from '../../components/employees/employeeLinks.vue'
 import productLinks from '../../components/products/productLinks.vue'
+
 export default {
   components: { productLinks, EmployeeLinks },
   async asyncData(ctx) {
@@ -61,6 +63,20 @@ export default {
     const area = data
     return {
       area,
+    }
+  },
+  head() {
+    return {
+      title: this.area.name + ' - AMMS Areas',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: this.area.name + ' description',
+          name: 'description',
+          content: '',
+        },
+      ],
     }
   },
   methods: {

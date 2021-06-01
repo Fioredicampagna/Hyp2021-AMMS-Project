@@ -82,6 +82,20 @@ export default {
       product,
     }
   },
+  head() {
+    return {
+      title: this.product.name + ' - AMMS Products',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: this.product.name + ' description',
+          name: 'description',
+          content: '',
+        },
+      ],
+    }
+  },
   methods: {
     goToPath(path) {
       this.$router.push({ path })

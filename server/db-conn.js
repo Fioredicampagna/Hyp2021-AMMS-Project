@@ -1,19 +1,19 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
-//const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
-// const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
-//const db = new Sequelize(
-//  'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
-//)
+// const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
+const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
+// const db = new Sequelize(
+//   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
+// )
 
 // Production
-const pg = require('pg')
-pg.defaults.ssl = true
-const db = new Sequelize(process.env.DATABASE_URL, {
-  ssl: true,
-  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-})
+// const pg = require('pg')
+// pg.defaults.ssl = true
+// const db = new Sequelize(process.env.DATABASE_URL, {
+//   ssl: true,
+//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+// })
 
 /**
  * Function to define the structure of the database
@@ -392,6 +392,11 @@ async function insertFakeData() {
   await accessories.addProduct(usb)
 
   await employee1.addProduct(book)
+  await employee2.addProduct(flagshipV1)
+  await employee3.addProduct(ionwhite)
+  await employee4.addProduct(budgetV2)
+  await employee5.addProduct(flagshipV2)
+  await employee6.addProduct(flagshipV3)
 
   await smartphone.addType(flagship)
   await smartphone.addType(budget)

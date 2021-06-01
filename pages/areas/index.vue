@@ -19,8 +19,8 @@
 </template>
 
 <script>
-// import axios from 'axios'
 import ArticleMini from '~/components/blog/ArticleMini.vue'
+
 export default {
   components: {
     ArticleMini,
@@ -38,6 +38,20 @@ export default {
 
     return {
       areas,
+    }
+  },
+  head() {
+    return {
+      title: 'AMMS Areas',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'Areas description',
+          name: 'description',
+          content: '',
+        },
+      ],
     }
   },
   methods: {
