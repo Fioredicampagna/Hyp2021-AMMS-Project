@@ -18,7 +18,14 @@ export const mutations = {
     }
   },
   SET_BREADCRUMBS(state, breadcrumbs) {
-    state.breadcrumbs = breadcrumbs
+    const breadcrumbsWithDivisors = []
+    breadcrumbs.forEach((element) => {
+      breadcrumbsWithDivisors.push(element)
+      breadcrumbsWithDivisors.push(null)
+    })
+
+    breadcrumbsWithDivisors.pop()
+    state.breadcrumbs = breadcrumbsWithDivisors
   },
 }
 
