@@ -34,7 +34,8 @@ export default {
         {
           hid: 'Home Page description',
           name: 'About description',
-          content: '',
+          content:
+            'Test description for the home page.. Some words to make it a bit longer.',
         },
       ],
     }
