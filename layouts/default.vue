@@ -19,6 +19,14 @@ export default {
 </script>
 
 <style>
+h1 {
+  text-align: center;
+  height: 100px;
+}
+h3 {
+  text-align: center;
+  height: 60px;
+}
 html {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;

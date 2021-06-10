@@ -1,50 +1,29 @@
 <template>
   <form>
-    <label for="fname">Name and Surname:</label>
-    <input type="text" id="fname" name="fname" /><br /><br />
-    <label for="lname">E-mail:</label>
-    <input type="text" id="lname" name="lname" /><br /><br />
-    <input type="submit" value="Submit" />
+    <h3>Contact us</h3>
+
+    <label class="grey-text">Your name</label>
+    <input type="text" class="form-control" />
+
+    <br />
+
+    <label class="grey-text">Your email</label>
+    <input type="email" class="form-control" />
+
+    <br />
+
+    <label class="grey-text">Subject</label>
+    <input type="text" class="form-control" />
+
+    <br />
+
+    <label class="grey-text">Your message</label>
+    <textarea type="text" class="form-control" rows="3"></textarea>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-outline-warning" type="submit">Send</button>
+    </div>
   </form>
-  <!--<form class="form">
-	 <form v-on:submit.prevent="submitForm"> >
-		<p v-bind:class="{ 'fld-error': $v.form.name.$error }">
-			<label>Name and Surname</label><br>
-			<input type="text" v-model.trim="form.name" @input="$v.form.name.$touch()">
-
-			<span class="msg-error" v-if="!$v.form.name.required">
-				<small>Field is required</small>
-			</span>
-			<span class="msg-error" v-if="!$v.form.name.minLength">
-				<small>Name must have at least {{ $v.form.name.$params.minLength.min }} letters.</small>
-			</span>
-		</p>
-
-		<p v-bind:class="{ 'fld-error': $v.form.company.$error }">
-			<label>Company</label><br>
-			<input type="text" v-model="form.company" @input="$v.form.job.$touch()">
-
-			<span class="msg-error" v-if="!$v.form.company.required">
-				<small>Field is required</small>
-			</span>
-		</p>
-
-        <p v-bind:class="{ 'fld-error': $v.form.email.$error }">
-			<label>E-mail</label><br>
-			<input type="text" v-model.trim="form.email" @input="$v.form.name.$touch()">
-
-			<span class="msg-error" v-if="!$v.form.email.required">
-				<small>Field is required</small>
-			</span>
-			<span class="msg-error" v-if="!$v.form.email.minLength">
-				<small>Name must have at least {{ $v.form.email.$params.minLength.min }} letters.</small>
-			</span>
-		</p>
-
-		<p>
-			<button type="submit" @click.prevent="submitForm" :disabled="$v.form.$invalid">Send</button>
-		</p>
-	</form-->
 </template>
 
 <script>
@@ -138,16 +117,15 @@ export default {
 </script-->
 
 <style scoped>
-h2 {
-  margin-bottom: 30px;
-}
-h4 {
-  margin-bottom: 30px;
-}
-img {
-  max-width: 600px;
-}
-p {
-  text-align: left;
+form {
+  width: 80%;
+  height: 350px;
+  max-width: 400px;
+  margin: auto;
+  /* background-size: cover; */
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  /* box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2); */
 }
 </style>

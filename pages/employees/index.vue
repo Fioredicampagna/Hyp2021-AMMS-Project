@@ -69,11 +69,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  margin-bottom: 20px;
-  margin-left: 20px;
-  text-align: left;
-}
 .employee-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));

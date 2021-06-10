@@ -21,7 +21,10 @@
                 v-for="(type, typeIndex) of landmark.types"
                 :key="'menu-subitem-' + typeIndex"
               >
-                <nuxt-link :to="`/product-types/${type.name}`">
+                <nuxt-link
+                  class="dropdown-content"
+                  :to="`/product-types/${type.name}`"
+                >
                   {{ type.name }}
                 </nuxt-link>
               </li>
@@ -53,25 +56,41 @@ export default {
 
 <style>
 .header {
-  height: 70px;
+  height: 75px;
   background: black;
   color: white;
-  display: flex;
-  justify-content: space-between;
+  padding-top: 25px;
+  /* display: flex; */
+  /* justify-content: space-between; */
   text-align: center;
 }
 .header-content {
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
   align-items: center;
+}
+ul {
+  list-style-type: none;
 }
 .center {
   display: flex;
+  position: relative;
   justify-content: space-between;
   width: 100%;
   margin: auto;
   max-width: 50%;
 }
+.dropdown-content {
+  display: flex;
+  position: relative;
+  /* top: 5px; */
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
 .title {
   font-size: 1.3rem;
   margin-bottom: 5px;
