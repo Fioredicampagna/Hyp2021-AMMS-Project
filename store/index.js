@@ -18,14 +18,24 @@ export const mutations = {
     }
   },
   SET_BREADCRUMBS(state, breadcrumbs) {
-    const breadcrumbsWithDivisors = []
+    const breadcrumbsWithDividers = []
+    const divider = null
+
+    const capitalize = (s) => (s && s[0].toUpperCase() + s.slice(1)) || ''
     breadcrumbs.forEach((element) => {
-      breadcrumbsWithDivisors.push(element)
-      breadcrumbsWithDivisors.push(null)
+      // Capitalize the first letter
+      const breadcrumb = {
+        name: capitalize(element.name),
+        path: element.path,
+      }
+
+      breadcrumbsWithDividers.push(breadcrumb)
+      breadcrumbsWithDividers.push(divider)
     })
 
-    breadcrumbsWithDivisors.pop()
-    state.breadcrumbs = breadcrumbsWithDivisors
+    // Pop the last divider
+    breadcrumbsWithDividers.pop()
+    state.breadcrumbs = breadcrumbsWithDividers
   },
 }
 
