@@ -49,7 +49,8 @@ export default {
         {
           hid: 'Areas description',
           name: 'description',
-          content: '',
+          content:
+            'This page provides a general description of the main website areas.',
         },
       ],
     }

@@ -37,7 +37,8 @@ export default {
         {
           hid: 'Contact Us description',
           name: 'About description',
-          content: '',
+          content:
+            'This page provides a way to get in touch with the AMMS company',
         },
       ],
     }

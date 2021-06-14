@@ -17,7 +17,7 @@
         v-for="(type, typeIndex) of area.types"
         :key="'type-' + typeIndex"
         @click="goToPath(`/product-types/${type.name}`)"
-        style="text-align:center"
+        style="text-align: center"
       >
         <nuxt-link
           style="text-align: center"
@@ -75,7 +75,10 @@ export default {
         {
           hid: this.area.name + ' description',
           name: 'description',
-          content: '',
+          content:
+            'This page provides some more details about the ' +
+            this.area.name +
+            ' area.',
         },
       ],
     }

@@ -47,7 +47,12 @@ export default {
         {
           hid: this.type.name + ' description',
           name: 'description',
-          content: '',
+          content:
+            'This page provides some more details about the ' +
+            this.type.name +
+            ' type inside the ' +
+            this.type.area.name +
+            ' area.',
         },
       ],
     }

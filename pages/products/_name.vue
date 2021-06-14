@@ -91,7 +91,12 @@ export default {
         {
           hid: this.product.name + ' description',
           name: 'description',
-          content: '',
+          content:
+            'This page provides some more details about the the product ' +
+            this.product.name +
+            ' inside the ' +
+            this.type.area.name +
+            ' area.',
         },
       ],
     }

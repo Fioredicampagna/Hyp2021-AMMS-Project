@@ -22,7 +22,9 @@ export default {
   data() {
     return {
       captions: ['The first place that you need to have a look in the market'],
-      descriptions: ['If you are looking for something related to ICT, then you are in the right place. We have bunch of products you might insterest.'],
+      descriptions: [
+        'If you are looking for something related to ICT, then you are in the right place. We have bunch of products you might insterest.',
+      ],
     }
   },
   head() {
@@ -34,8 +36,7 @@ export default {
         {
           hid: 'Home Page description',
           name: 'About description',
-          content:
-            'Test description for the home page.. Some words to make it a bit longer.',
+          content: 'This is the HomePage of the website.',
         },
       ],
     }
@@ -48,10 +49,10 @@ export default {
 </script>
 
 <style scoped>
-.description{
+.description {
   font-size: xx-large;
 }
-.title{
+.title {
   font-size: xxx-large;
   font-weight: bold;
 }

@@ -34,7 +34,8 @@ export default {
         {
           hid: this.product.name + ' description',
           name: 'About description',
-          content: '',
+          content:
+            'This page provides a general description of the AMMS company.',
         },
       ],
     }
