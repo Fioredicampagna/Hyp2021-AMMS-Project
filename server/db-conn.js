@@ -2,18 +2,18 @@ const { Sequelize, DataTypes } = require('sequelize')
 
 // Development
 // const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
-const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
+// const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
 // const db = new Sequelize(
 //   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
 // )
 
 // Production
-// const pg = require('pg')
-// pg.defaults.ssl = true
-// const db = new Sequelize(process.env.DATABASE_URL, {
-//   ssl: true,
-//   dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
-// })
+const pg = require('pg')
+pg.defaults.ssl = true
+const db = new Sequelize(process.env.DATABASE_URL, {
+  ssl: true,
+  dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+})
 
 /**
  * Function to define the structure of the database
@@ -249,6 +249,8 @@ async function insertFakeData() {
       First ever Pen compatibility. A striking new design. It's an Ultra that easily lives up to its name. 
       From $499.99 with eligible trade-in or $13.89/mo for 36 months⊕ with the highest online instant trade-in values.`,
     catchphrase: 'Epic in every way.',
+    image: 'products/smartphone/flagshipV4.jpg',
+    alt: 'Image that shows front and back of the flagshipV4.',
   })
 
   const flagshipV3 = await Product.create({
@@ -259,6 +261,8 @@ async function insertFakeData() {
       delivering the innovations of Flagship V3 to make incredible technology available to all. 
       From $399.99 with eligible trade-inᶿ or $11.11/mo for 36 months`,
     catchphrase: 'All you want, to do all you love',
+    image: 'products/smartphone/flagshipV3.png',
+    alt: 'Image that shows front and back of the flagshipV3.',
   })
 
   const flagshipV2 = await Product.create({
@@ -271,6 +275,8 @@ async function insertFakeData() {
     When everything works together, you can focus on what matters most. 
     Learn how you can make Samsung Connected Living a part of your world.`,
     catchphrase: 'Epic in every way.',
+    image: 'products/smartphone/flagshipV2.jpg',
+    alt: 'Image that shows front and back of the flagshipV2.',
   })
 
   const flagshipV1 = await Product.create({
@@ -283,6 +289,8 @@ async function insertFakeData() {
       When everything works together, you can focus on what matters most. 
       Learn how you can make Samsung Connected Living a part of your world.`,
     catchphrase: 'A New Kind of New.',
+    image: 'products/smartphone/flagshipV1.jpg',
+    alt: 'Image that shows front and back of the flagshipV1.',
   })
 
   const budgetV3 = await Product.create({
@@ -293,6 +301,8 @@ async function insertFakeData() {
       it’s time to see why the V3 gives you so much more than you bargained for. 
       The Budget V3 series phone starts at $349.99 with eligible trade-in.`,
     catchphrase: '5G for all.',
+    image: 'products/smartphone/budgetV3.png',
+    alt: 'Image that shows front and back of the budgetV3.',
   })
 
   const budgetV2 = await Product.create({
@@ -302,6 +312,8 @@ async function insertFakeData() {
       Capture share-worthy photos or videos with a tap of a finger, go longer with a 2-day battery, 
       scroll through your feed at lightning speed and stream what you want, when you want.`,
     catchphrase: 'Introducing the Budget V2.',
+    image: 'products/smartphone/budgetV2.jpg',
+    alt: 'Image that shows front and back of the budgetV2.',
   })
 
   const budgetV1 = await Product.create({
@@ -310,6 +322,8 @@ async function insertFakeData() {
       That means you get a long-lasting battery, expandable storage, multiple cameras, 
       a super-crisp display and blazing-fast 5G speed`,
     catchphrase: 'Introducing the Budget V1.',
+    image: 'products/smartphone/budgetV1.jpg',
+    alt: 'Image that shows front and back of the budgetV1.',
   })
 
   const employee1 = await Employee.create({
