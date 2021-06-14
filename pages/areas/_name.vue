@@ -25,6 +25,7 @@
         :key="'type-' + typeIndex"
         class="col-md-4"
         @click="goToPath(`/product-types/${type.name}`)"
+        style="text-align:center"
       >
         <nuxt-link
           style="text-align: center"
