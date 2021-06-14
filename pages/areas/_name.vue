@@ -17,6 +17,7 @@
         v-for="(type, typeIndex) of area.types"
         :key="'type-' + typeIndex"
         @click="goToPath(`/product-types/${type.name}`)"
+        style="text-align:center"
       >
         <nuxt-link
           style="text-align: center"

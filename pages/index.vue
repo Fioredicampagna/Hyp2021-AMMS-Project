@@ -8,10 +8,10 @@
     pause-on-dots-hover
     autoplay
   >
-    <div v-for="n in 2" :key="n" class="slide" :class="`slide-${n}`">
-      <h2 slot="caption" class="slide-element sl-45">{{ captions[n] }}</h2>
-      <p slot="description" class="slide-element sl-55">
-        {{ descriptions[n] }}
+    <div v-for="n in 3" :key="n" class="slide" :class="`slide-${n}`">
+      <p slot="caption" class="slide-element sl-45 title">{{ captions[0] }}</p>
+      <p slot="description" class="slide-element sl-45 description">
+        {{ descriptions[0] }}
       </p>
     </div>
   </agile>
@@ -21,8 +21,8 @@
 export default {
   data() {
     return {
-      captions: ['', 'This is slide 1', 'This is a third and final slide'],
-      descriptions: ['', 'Description 1 ', 'Final description'],
+      captions: ['The first place that you need to have a look in the market'],
+      descriptions: ['If you are looking for something related to ICT, then you are in the right place. We have bunch of products you might insterest.'],
     }
   },
   head() {
@@ -48,17 +48,20 @@ export default {
 </script>
 
 <style scoped>
+.description{
+  font-size: xx-large;
+}
+.title{
+  font-size: xxx-large;
+  font-weight: bold;
+}
 .slide-element {
-  position: fixed;
-  left: 10%;
+  position: inherit;
+  text-align: center;
 }
 
 .sl-45 {
   top: 45%;
-}
-
-.sl-55 {
-  top: 55%;
 }
 
 .agile__dots {
@@ -90,10 +93,13 @@ export default {
 }
 
 .slide-1 {
-  background-image: url('https://images.unsplash.com/photo-1509549649946-f1b6276d4f35?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ');
+  background-image: url('~/assets/main/computer1.jpg');
 }
 .slide-2 {
-  background-image: url('https://images.unsplash.com/photo-1511469054436-c7dedf24c66b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9');
+  background-image: url('~/assets/main/mainboard.jpg');
+}
+.slide-3 {
+  background-image: url('~/assets/main/room.jpg');
 }
 
 .slide {
@@ -105,8 +111,30 @@ export default {
   width: 100%;
 }
 
-h2 {
+h1 {
   margin-bottom: 30px;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .slide {
+    align-items: center;
+    color: #fff;
+    display: block;
+    /* justify-content: center; */
+    height: 600px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .slide {
+    align-items: center;
+    color: #fff;
+    display: block;
+    /* justify-content: center; */
+    height: 900px;
+    width: 100%;
+  }
 }
 </style>
