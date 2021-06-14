@@ -10,6 +10,23 @@
         {{ area.description }}
       </p>
     </article>
+    <section v-if="area.types.length != 0">
+      <h4>Types</h4>
+      <div
+        class="row"
+        v-for="(type, typeIndex) of area.types"
+        :key="'type-' + typeIndex"
+        @click="goToPath(`/product-types/${type.name}`)"
+      >
+        <nuxt-link
+          style="text-align: center"
+          class="col-md-4"
+          :to="`/producttypes/${type.name}`"
+        >
+          {{ type.name }}
+        </nuxt-link>
+      </div>
+    </section>
     <section class="products">
       <h3>Products</h3>
       <product-links :products="area.products"></product-links>
@@ -17,23 +34,6 @@
     <section class="products">
       <h3>Employees</h3>
       <employee-links :employees="area.employees"></employee-links>
-    </section>
-    <section v-if="area.types.length != 0">
-      <h4>Types</h4>
-      <div
-        v-for="(type, typeIndex) of area.types"
-        :key="'type-' + typeIndex"
-        class="col-md-4"
-        @click="goToPath(`/product-types/${type.name}`)"
-      >
-        <nuxt-link
-          style="text-align: center"
-          class="link"
-          :to="`/producttypes/${type.name}`"
-        >
-          {{ type.name }}
-        </nuxt-link>
-      </div>
     </section>
   </section>
 </template>
@@ -91,10 +91,11 @@ export default {
 h4 {
   margin: 30px 0;
 }
-.link {
+.col-md-4 {
   color: cadetblue;
   padding: 20px;
   margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
 }
 img {
   max-width: 600px;
