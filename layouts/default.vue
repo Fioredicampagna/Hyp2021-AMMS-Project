@@ -25,6 +25,9 @@ h1 {
 }
 h3 {
   text-align: center;
+}
+h4 {
+  text-align: center;
   height: 60px;
 }
 html {

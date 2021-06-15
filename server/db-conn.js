@@ -3,9 +3,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 // Development
 // const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
 // const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
-// const db = new Sequelize(
-//   'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
-// )
+//const db = new Sequelize(
+//  'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
+//)
 
 // Production
 const pg = require('pg')
@@ -94,7 +94,7 @@ function defineDatabaseStructure() {
 
   Product.belongsToMany(Employee, { through: 'ProductEmployee' })
   Product.hasMany(Feature)
-  Product.belongsToMany(Product, { as: 'Related', through: 'RelatedProducts' })
+  Product.belongsToMany(Product, { as: 'related', through: 'RelatedProducts' })
   Product.belongsTo(Type)
   Product.belongsTo(Area, { foreignKey: 'area_id' })
 

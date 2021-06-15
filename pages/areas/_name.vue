@@ -3,7 +3,9 @@
     <header>
       <h1>{{ area.name }}</h1>
       <h4>{{ area.introduction }}</h4>
-      <!--img :src="area.image" :alt="area.introduction" /-->
+      <div class="col-md-6">
+        <img img :src="require(`~/assets/${area.image}`)" :alt="area.alt" />
+      </div>
     </header>
     <article>
       <p>
@@ -13,15 +15,15 @@
     <section v-if="area.types.length != 0">
       <h4>Types</h4>
       <div
-        class="row"
         v-for="(type, typeIndex) of area.types"
         :key="'type-' + typeIndex"
-        @click="goToPath(`/product-types/${type.name}`)"
+        class="row"
         style="text-align: center"
+        @click="goToPath(`/product-types/${type.name}`)"
       >
         <nuxt-link
           style="text-align: center"
-          class="col-md-4"
+          class="col-sm-4"
           :to="`/producttypes/${type.name}`"
         >
           {{ type.name }}
@@ -95,7 +97,7 @@ export default {
 h4 {
   margin: 30px 0;
 }
-.col-md-4 {
+.col-sm-4 {
   color: cadetblue;
   padding: 20px;
   margin: 10px;

@@ -3,7 +3,7 @@ export default {
   target: 'server',
   env: {
     BASE_URL: 'https://hyp2021-amms.herokuapp.com', // Production URL
-    // BASE_URL: 'http://localhost:3000', // Development URL
+    //BASE_URL: 'http://localhost:3000', // Development URL
   },
   serverMiddleware: [
     {

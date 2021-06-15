@@ -17,7 +17,17 @@ async function init() {
     const products = await Product.findOne({
       where: { name },
       include: [
-        { model: Product, attributes: ['name'] },
+        {
+          model: Product,
+          through: 'RelatedProducts',
+          as: 'related',
+          attributes: ['name', 'image'],
+          through: {
+            // through again doesn't create any issue
+            attributes: [], // this helps removing the join table in returned data
+            //where: {completed: true}
+          },
+        },
         { model: Type, attributes: ['name'] },
         { model: Employee, attributes: ['name', 'image'] },
         { model: Area, attributes: ['name'] },

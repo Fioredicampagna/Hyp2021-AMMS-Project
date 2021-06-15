@@ -30,11 +30,11 @@
       </div>
     </div>
 
-    <div v-if="product.products.length != 0">
+    <div v-if="product.related.length != 0">
       <header class="related-products">
         <h1>Other Products</h1>
       </header>
-      <product-links :products="product.products"></product-links>
+      <product-links :products="product.related"></product-links>
     </div>
 
     <div>
@@ -95,7 +95,7 @@ export default {
             'This page provides some more details about the the product ' +
             this.product.name +
             ' inside the ' +
-            this.type.area.name +
+            this.product.area.name +
             ' area.',
         },
       ],
