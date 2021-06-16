@@ -112,16 +112,14 @@ function defineDatabaseStructure() {
  */
 async function insertFakeData() {
   const { Area, Product, Type, Employee } = db._tables
-  const surface = await Area.create({
-    name: 'SurfaceBooks',
+  const galaxybooks = await Area.create({
+    name: 'Galaxy Books',
     introduction:
-      'Working remotely with Fake' +
-      'From home office to kitchen table to living room couch, Fake delivers the power to get it done, hi-res touchscreens and Dolby® Audio™ for music and shows, HD cameras to stay in touch, and the Fake OS you know.',
+      'From home office to kitchen table to living room couch, Fake delivers the power to get it done, hi-res touchscreens and Dolby® Audio™ for music and shows, HD cameras to stay in touch, and the Galaxy OS you know.',
     description:
-      'Live, work, and play with Surface' +
-      'Staying connected to what matters is easy when you and your loved ones can work, learn, play, and catch up with devices designed for every part of your life. Easily connect, share experiences, and celebrate big momentsSurface and Skype help you connect with the people who matter most. Built for one-on-one and group conversations of up to 50 people.Get things done, wherever you are' +
-      'Whether in your home office, at the kitchen table, or on your living room couch, be creative, work your way, and have fun. From a fresh, sleek take on classic laptop design to detachable tablets to our signature adjustable Kickstand, there’s a lot to love about Surface PCs that adapt to you.Built-in cameras that show your best side' +
-      'All Surface computers have HD video webcams that orient your face from whatever angle you take your calls, meetings, virtual get togethers, and more. Also, don’t drop video when you share your screen.',
+      'Staying connected to what matters is easy when you and your loved ones can work, learn, play, and catch up with devices designed for every part of your life. Galaxy and Skype help you connect with the people who matter most. Built for one-on-one and group conversations of up to 50 people.' +
+      'Whether in your home office, at the kitchen table, or on your living room couch, be creative, work your way, and have fun. From a fresh, sleek take on classic laptop design to detachable tablets to our signature adjustable Kickstand, there’s a lot to love about Galaxy PCs that adapt to you.' +
+      'All Galaxy computers have HD video webcams that orient your face from whatever angle you take your calls, meetings, virtual get togethers, and more. Also, don’t drop video when you share your screen.',
     image: 'areas/pc/previewimage.jpeg',
     alt:
       'Image that shows three products of the product line that represent the area as a whole',
@@ -208,15 +206,6 @@ async function insertFakeData() {
     alt: 'Image that shows the usb type-c flash drive closed from the side.',
   })
 
-  const smartphone = await Area.create({
-    name: 'Smartphones',
-    introduction: 'A smartphone for everyone',
-    description: `Explore Galaxy. Find your place in the Galaxy. 
-    With 2 dynamic, cutting-edge lines of phones designed for everyone 
-    from creatives and business professionals to students and gamers, Galaxy has a phone built for you.`,
-    image: 'areas/smartphone/previewSmartphone.png',
-    alt: 'Image that showsh a smartphone held in one hand.',
-  })
   await Area.create({
     name: 'Software',
     introduction: 'Software area INTRODUCTION',
@@ -225,13 +214,66 @@ async function insertFakeData() {
     alt:
       'Image that shows a silhouette of a pc with a gear logo on it, which simbolizes utility software.',
   })
-  await Area.create({
-    name: 'Cloud',
-    introduction: 'Cloud area INTRODUCTION',
-    description: 'Cloud area DESCRIPTION',
+  const cloud = await Area.create({
+    name: 'Cloud services',
+    introduction:
+      'Cloud services are services available via a remote cloud computing server rather than an on-site server. ',
+    description:
+      'The term "cloud services" refers to a wide range of services delivered on demand to companies and customers over the internet. These services are designed to provide easy, affordable access to applications and resources, without the need for internal infrastructure or hardware.' +
+      "Cloud services are fully managed by cloud computing vendors and service providers. They’re made available to customers from the providers' servers, so there's no need for a company to host the applications on its own on-premises servers. ",
     image: 'areas/cloud/cloudPreview.png',
     alt:
       'Image that shows clouds containing icons of utility software exchanging messages between them.',
+  })
+
+  const databases = await Product.create({
+    name: 'Databases',
+    description: `Migrate and manage enterprise data with security, reliability, high availability, and fully managed data services. `,
+    catchphrase: 'State of the art data management.',
+    image: 'products/cloud/db.jpg',
+    alt: 'Image that shows an icon representing database services.',
+  })
+
+  const aiml = await Product.create({
+    name: 'AI & Machine Learning',
+    description: `Equip your teams with AI and ML solutions to increase efficiency within customer care, recruiting, and beyond. `,
+    catchphrase: 'Make our hardware do the thinking for you.',
+    image: 'products/cloud/ai.jpg',
+    alt: 'Image that shows an icon representing artificial intelligence.',
+  })
+
+  const media = await Product.create({
+    name: 'Media & Entertainment',
+    description: `Create world-class content, streamline workflows, quickly launch new digital services, and transform audience experiences. `,
+    catchphrase: 'Be part of the modern entertainment world.',
+    image: 'products/cloud/media-icon.svg',
+    alt: 'Image that shows an icon representing media services.',
+  })
+
+  const business = await Product.create({
+    name: 'Business application platform',
+    description: `Securely automate processes and easily create applications without coding by extending your existing data with APIs. `,
+    catchphrase: 'No need to do yourself the boring stuff.',
+    image: 'products/cloud/devops-icon.svg',
+    alt: 'Image that shows an icon representing the developer tools.',
+  })
+
+  const security = await Product.create({
+    name: 'Security',
+    description: `Detect, investigate, and respond to online threats with proven security solutions to help protect your business. `,
+    catchphrase: 'Epic in every way.',
+    image: 'products/cloud/security.svg',
+    alt: 'Image that shows an icon representing the security services',
+  })
+
+  const smartphone = await Area.create({
+    name: 'Smartphones',
+    introduction: 'A smartphone for everyone',
+    description: `Explore Galaxy. Find your place in the Galaxy. 
+    With 2 dynamic, cutting-edge lines of phones designed for everyone 
+    from creatives and business professionals to students and gamers, Galaxy has a phone built for you.`,
+    image: 'areas/smartphone/previewSmartphone.png',
+    alt: 'Image that showsh a smartphone held in one hand.',
   })
 
   const flagship = await Type.create({
@@ -334,18 +376,18 @@ async function insertFakeData() {
     alt: 'Image that shows front and back of the budgetV1.',
   })
 
-  const employee1 = await Employee.create({
+  const tomhanks = await Employee.create({
     name: 'Tom Hanks',
-    designation: 'Founder and Cheif Executive Officer',
+    designation: 'Founder and Chief Executive Officer',
     presentation: `Thomas Jeffrey Hanks is an American actor and filmmaker. Known for both his comedic and dramatic roles, he is one of the most popular and recognizable film stars worldwide, and is regarded as an American cultural icon. Hanks's films have grossed more than $4.9 billion in North America and more than $9.96 billion worldwide, making him the fourth-highest-grossing actor in North America.
 
       Hanks made his breakthrough with leading roles in the comedies Splash and Big. He won two consecutive Academy Awards for Best Actor for starring as a gay lawyer suffering from AIDS in Philadelphia and the title character in Forrest Gump. Hanks collaborated with film director Steven Spielberg on five films: Saving Private Ryan, Catch Me If You Can, The Terminal, Bridge of Spies, and The Post, as well as the 2001 miniseries Band of Brothers, which launched him as a director, producer, and screenwriter. Hanks's other films include the romantic comedies Sleepless in Seattle and You've Got Mail; the dramas Apollo 13, The Green Mile, Cast Away, Road to Perdition, and Cloud Atlas; and the biographical dramas Charlie Wilson's War, Captain Phillips, Saving Mr. Banks, Sully, A Beautiful Day in the Neighborhood, and News of the World. He has also appeared as the title character in the Robert Langdon film series, and has voiced Sheriff Woody in the Toy Story film series.`,
     image: 'employees/tom_hanks.jpg',
   })
 
-  const employee2 = await Employee.create({
+  const willsmith = await Employee.create({
     name: 'Will Smith',
-    designation: 'Founder and Cheif product Officer',
+    designation: 'Founder and Chief Product Officer',
     presentation: `Willard Carroll Smith Jr is an American actor, rapper, and film producer. Smith has been nominated for five Golden Globe Awards and two Academy Awards, and has won four Grammy Awards.
 
       During the late 1980s, he achieved modest fame as a rapper under the name The Fresh Prince. In 1990, his popularity increased dramatically when he began starring in the NBC television series The Fresh Prince of Bel-Air, which ran for six seasons until 1996. After the series ended, Smith transitioned from television to film and went on to star in numerous blockbuster films. He is the only actor to have starred in eight consecutive films which grossed over $100 million in the United States box office, eleven consecutive films which grossed over $150 million internationally, and eight consecutive films which opened at the number one spot in the US box office tally.
@@ -354,18 +396,18 @@ async function insertFakeData() {
     image: 'employees/will_smith.jpg',
   })
 
-  const employee3 = await Employee.create({
+  const denzwashington = await Employee.create({
     name: 'Denzel Washington',
-    designation: 'Cheif Technology Officer',
+    designation: 'Chief Technology Officer',
     presentation: `Denzel Hayes Washington Jr. is an American actor, director, and producer. 
       He has been described as an actor who reconfigured "the concept of classic movie stardom," 
       mostly associating with characters defined by their grace, dignity, humanity, and inner strength.`,
     image: 'employees/denzel_washington.jpg',
   })
 
-  const employee4 = await Employee.create({
+  const leodicaprio = await Employee.create({
     name: 'Leonardo DiCaprio',
-    designation: 'Cheif Business Officer',
+    designation: 'Chief Business Officer',
     presentation: `Leonardo Wilhelm DiCaprio is an American actor, film producer, and environmentalist. 
       He has often played unconventional roles, particularly in biopics and period films. 
       As of 2019, his films have grossed $7.2 billion worldwide, 
@@ -373,18 +415,18 @@ async function insertFakeData() {
     image: 'employees/leonardo_dicaprio.jpg',
   })
 
-  const employee5 = await Employee.create({
+  const morgfreeman = await Employee.create({
     name: 'Morgan Freeman',
-    designation: 'Cheif Marketing Officer',
+    designation: 'Chief Marketing Officer',
     presentation: `Morgan Freeman is an American actor, director, and narrator. 
       He has appeared in a range of film genres portraying character roles and is particularly known for his distinctive deep voice. 
       Freeman is the recipient of various accolades, including an Academy Award, a Golden Globe Award, and a Screen Actors Guild`,
     image: 'employees/morgan_freeman.jpg',
   })
 
-  const employee6 = await Employee.create({
+  const bradpitt = await Employee.create({
     name: 'Brad Pitt',
-    designation: 'Cheif Operating Officer',
+    designation: 'Chief Operating Officer',
     presentation: `William Bradley Pitt is an American actor and film producer. He has received multiple awards, including two Golden Globe Awards and an Academy Award for his acting, in addition to another Academy Award, another Golden Globe Award and a Primetime Emmy Award as a producer under his production company, Plan B Entertainment.
 
       Pitt first gained recognition as a cowboy hitchhiker in the road film Thelma & Louise. His first leading roles in big-budget productions came with the drama films A River Runs Through It and Legends of the Fall, and the horror film Interview with the Vampire. He gave critically acclaimed performances in the crime thriller Seven and the science fiction film 12 Monkeys, the latter earning him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination.
@@ -393,17 +435,156 @@ async function insertFakeData() {
     image: 'employees/brad_pitt.jpg',
   })
 
-  await surface.addType(monitors)
-  await surface.addType(accessories)
-  await surface.addType(laptops)
+  const billgates = await Employee.create({
+    name: 'Bill Gates',
+    designation: 'IT director',
+    presentation: `William Henry Gates III is an American business magnate, software developer, investor, author, and philanthropist He is considered one of the best known entrepreneurs of the microcomputer revolution of the 1970s and 1980s.
 
-  await surface.addProduct(book)
-  await surface.addProduct(flexblue)
-  await surface.addProduct(ionwhite)
-  await surface.addProduct(monitorcurve)
-  await surface.addProduct(uhdmonitor)
-  await surface.addProduct(ssd)
-  await surface.addProduct(usb)
+      Gates launched their first retail version of Microsoft Windows on November 20, 1985 in an attempt to fend off competition from Apple's Macintosh GUI, which had bewitched consumers with its simplicity and ease of use.
+
+      Since 1987, Bill Gates has been included in the Forbes list of the world's wealthiest people. From 1995 to 2017, he held the Forbes title of the richest person in the world every year except from 2010 to 2013.`,
+    image: 'employees/billgates.jpg',
+  })
+
+  const edboon = await Employee.create({
+    name: 'Ed Boon',
+    designation: 'IT manager',
+    presentation: `Edward John Boon is an American video game programmer, voice actor, and director who was employed for over 15 years at Midway Games. Boon is best known for the widely popular Mortal Kombat series, which he created with John Tobias.
+
+      After graduation, he was employed by Williams Entertainment in their pinball department, working on approximately 20 pinball games over the next two years. During this time, he was called the Mortal Master, an early indicator towards a future creation.
+
+      Boon was ranked #100 in IGN's 2009 list of "Top 100 Game Creators" for his involvement in the Mortal Kombat series. He continues to be directly involved with the MK franchise and its multimedia side projects, and has also provided voice acting and motion capture work for the games.`,
+    image: 'employees/edboon.jpg',
+  })
+
+  const filsaime = await Employee.create({
+    name: 'Reggie Fils-Aimé',
+    designation: 'Sales and Marketing Director',
+    presentation: `Reginald Fils-Aimé is an American businessman best known for being the president and chief operating officer of Nintendo of America, the North American division of the Japanese video game company Nintendo, from 2006 to 2019.
+
+    Fils-Aimé gained celebrity status among gamers following his appearance at Nintendo's E3 2004 press conference in May 2004, and helped to revitalize Nintendo's image as a major contender among the other video game console makers. Fils-Aimé had held previous sales and marketing executive roles at Procter & Gamble, Pizza Hut, Guinness, Derby Cycle, Panda Express, and VH1.
+    
+    Fils-Aimé retired as president of Nintendo of America on April 15, 2019. He subsequently became a Leader in Residence at Cornell University and later named to the Board of Directors for AMMS.`,
+    image: 'employees/filsaime.jpg',
+  })
+
+  const johncarmack = await Employee.create({
+    name: 'John Carmack',
+    designation: 'Lead Senior Programmer',
+    presentation: `John D. Carmack II is an American computer programmer, video game developer and engineer. He co-founded the video game company id Software and was the lead programmer of its games Commander Keen, Wolfenstein 3D, Doom, Quake, and their sequels. 
+    
+    Carmack made innovations in 3D computer graphics, such as his Carmack's Reverse algorithm for shadow volumes. 
+    
+    In 2013, he resigned from id to work full-time at AMMS, where he serves as Lead Senior Programmer`,
+    image: 'employees/johncarmack.jpeg',
+  })
+
+  const johnromero = await Employee.create({
+    name: 'John Romero',
+    designation: 'Junior Programmer',
+    presentation: `Alfonso John Romero is an American director, designer, programmer, and developer in the video game industry. 
+    
+    He is best known as a co-founder of id Software and designer for many of their games, including Wolfenstein 3D, Dangerous Dave, Hexen, Doom, Doom II and Quake. 
+    
+    His game designs and development tools, along with new programming techniques created and implemented by id Software's lead programmer John D. Carmack, led to a mass popularization of the first-person shooter in the 1990s.`,
+    image: 'employees/johnromero.jpg',
+  })
+
+  const kaneko = await Employee.create({
+    name: 'Kazuma Kaneko',
+    designation: 'Art Director',
+    presentation: `Kazuma Kaneko is a Japanese art director, illustrator and employee at AMMS. While working for AMMS, he has also done freelance work for Capcom and Konami among many others.
+    
+    Kaneko designed concept art for games like Devil May Cry 3 and Zone of the Enders 2. 
+    
+    He also illustrates covers for several novels such as The Case of the Dragon Slayer.`,
+    image: 'employees/Kaneko.webp',
+  })
+
+  const linus = await Employee.create({
+    name: 'Linus Torvalds',
+    designation: 'IT Systems Architect',
+    presentation: `Linus Benedict Torvalds is a Finnish-American software engineer who is the creator and, historically, the main developer of the Linux kernel, used by Linux distributions and other operating systems such as Android.
+    
+    He also created the distributed revision control system Git and the scuba dive logging and planning software Subsurface.
+
+    He was honored, along with Shinya Yamanaka, with the 2012 Millennium Technology Prize by the Technology Academy Finland "in recognition of his creation of a new open source operating system for computers leading to the widely used Linux kernel."`,
+    image: 'employees/linus.jpg',
+  })
+
+  const michelancel = await Employee.create({
+    name: 'Michel Ancel',
+    designation: 'Cloud Infrastructure Architect',
+    presentation: `Michel Ancel is a French video game designer. He is best known for creating the Rayman franchise, and was the lead designer or director for several of the games, including Rayman Origins and its sequel Rayman Legends.
+    
+    He is also known for the cult hit video game Beyond Good & Evil and for King Kong, based on Peter Jackson's film King Kong, which was critically acclaimed.
+    
+    In 2017 he began working for AMMS, putting his creative skills to great use for the company.`,
+    image: 'employees/michelancel.jpg',
+  })
+
+  const miyamoto = await Employee.create({
+    name: 'Shigeru Miyamoto',
+    designation: 'Development Director',
+    presentation: `Shigeru Miyamoto is a Japanese software designer, producer and development director at AMMS, where he serves as one of its representative directors.
+    
+    He is the creator of some of the most acclaimed and best-selling game franchises of all time, including Mario and The Legend of Zelda.
+
+    Born in Sonobe, Japan, Miyamoto graduated from Kanazawa Municipal College of Industrial Arts. He originally sought a career as a manga artist, until developing an interest in video games and software development.`,
+    image: 'employees/miyamoto.jpg',
+  })
+
+  const molyneux = await Employee.create({
+    name: 'Peter Molyneux',
+    designation: 'Computer Systems Manager',
+    presentation: `Peter Douglas Molyneux is an English video game designer and programmer.
+    
+    He created the god games Populous, Dungeon Keeper, and Black & White, as well as Theme Park, the Fable series, Curiosity – What's Inside the Cube?, and Godus. 
+    
+    He currently works at AMMS as .`,
+    image: 'employees/molyneux.jpg',
+  })
+
+  const nagoshi = await Employee.create({
+    name: 'Toshihiro Nagoshi',
+    designation: 'Chief Information Officer ',
+    presentation: `Toshihiro Nagoshi is a Japanese video game producer and designer. 
+    
+    He was the chief creative officer for Sega until 2021 when he left the company to become chief information officer for AMMS.`,
+    image: 'employees/nagoshi.jpg',
+  })
+
+  const stevejobs = await Employee.create({
+    name: 'Steve Jobs',
+    designation: 'Chief Security Officer',
+    presentation: `Steven Paul Jobs is an American business magnate, industrial designer, investor, and media proprietor.
+    
+    He was the chairman, chief executive officer (CEO), and co-founder of Apple Inc. before moving to AMMS; the chairman and majority shareholder of Pixar; a member of The Walt Disney Company's board of directors following its acquisition of Pixar; and the founder, chairman, and CEO of NeXT. 
+    
+    Jobs is widely recognized as a pioneer of the personal computer revolution of the 1970s and 1980s, along with his early business partner and fellow Apple co-founder Steve Wozniak.`,
+    image: 'employees/stevejobs.jpg',
+  })
+
+  const toddhoward = await Employee.create({
+    name: 'Todd Howard',
+    designation: 'Executive Producer',
+    presentation: `Todd Andrew Howard is an American video game designer, director, and producer. 
+    
+    He serves as executive producer at AMMS, where he has led the development of the majority of the software services offered by the company.`,
+    image: 'employees/toddhoward.jpg',
+  })
+
+  await galaxybooks.addType(monitors)
+  await galaxybooks.addType(accessories)
+  await galaxybooks.addType(laptops)
+
+  await galaxybooks.addProduct(book)
+  await galaxybooks.addProduct(flexblue)
+  await galaxybooks.addProduct(ionwhite)
+  await galaxybooks.addProduct(monitorcurve)
+  await galaxybooks.addProduct(uhdmonitor)
+  await galaxybooks.addProduct(ssd)
+  await galaxybooks.addProduct(usb)
 
   await laptops.addProduct(book)
   await laptops.addProduct(flexblue)
@@ -413,12 +594,17 @@ async function insertFakeData() {
   await accessories.addProduct(ssd)
   await accessories.addProduct(usb)
 
-  await employee1.addProduct(book)
-  await employee2.addProduct(flagshipV1)
-  await employee3.addProduct(ionwhite)
-  await employee4.addProduct(budgetV2)
-  await employee5.addProduct(flagshipV2)
-  await employee6.addProduct(flagshipV3)
+  //await galaxybooks.addEmployee(tomhanks)
+  //await galaxybooks.addEmployee(denzwashington)
+
+  await tomhanks.addProduct(book)
+  await denzwashington.addProduct(ionwhite)
+
+  await cloud.addProduct(databases)
+  await cloud.addProduct(aiml)
+  await cloud.addProduct(business)
+  await cloud.addProduct(security)
+  await cloud.addProduct(media)
 
   await smartphone.addType(flagship)
   await smartphone.addType(budget)
@@ -440,8 +626,18 @@ async function insertFakeData() {
   await smartphone.addProduct(budgetV2.id)
   await smartphone.addProduct(budgetV3.id)
 
-  // await flagshipV1.addProduct(flagshipV2.id)
-  // await flagshipV1.addProduct(flagshipV3.id)
+  await willsmith.addProduct(flagshipV1)
+  await leodicaprio.addProduct(budgetV2)
+  await morgfreeman.addProduct(flagshipV2)
+  await bradpitt.addProduct(flagshipV3)
+
+  //await smartphone.addEmployee(willsmith)
+  //await smartphone.addEmployee(leodicaprio)
+  //await smartphone.addEmployee(morgfreeman)
+  //await smartphone.addEmployee(bradpitt)
+
+  //await flagshipV1.addProduct(flagshipV2.id)
+  //await flagshipV1.addProduct(flagshipV3.id)
 }
 
 /**
