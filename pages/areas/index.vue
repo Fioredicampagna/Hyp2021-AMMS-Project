@@ -2,7 +2,6 @@
   <main class="container">
     <header>
       <h1>Areas of our company</h1>
-      <h4>Subtitle</h4>
     </header>
     <section class="article-grid">
       <div
@@ -12,18 +11,18 @@
         @click="goToArea(`/areas/${area.name}`)"
       >
         <p>{{ area.name }}</p>
-        <article-mini></article-mini>
+        <area-preview :name="area.name" :image="area.image"></area-preview>
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import ArticleMini from '~/components/blog/ArticleMini.vue'
+import AreaPreview from '../../components/areas/areaPreview.vue'
 
 export default {
   components: {
-    ArticleMini,
+    AreaPreview,
   },
   async asyncData({ $axios, store }) {
     const { data } = await $axios.get(`${process.env.BASE_URL}/api/areas`)

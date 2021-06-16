@@ -128,17 +128,17 @@ async function insertFakeData() {
   })
 
   const monitors = await Type.create({
-    name: 'monitors',
+    name: 'Monitors',
     description: '',
   })
 
   const accessories = await Type.create({
-    name: 'accessories',
+    name: 'Accessories',
     description: '',
   })
 
   const laptops = await Type.create({
-    name: 'laptops',
+    name: 'Laptops',
     description: '',
   })
 
@@ -209,21 +209,29 @@ async function insertFakeData() {
   })
 
   const smartphone = await Area.create({
-    name: 'Smarthones',
+    name: 'Smartphones',
     introduction: 'A smartphone for everyone',
     description: `Explore Galaxy. Find your place in the Galaxy. 
     With 2 dynamic, cutting-edge lines of phones designed for everyone 
     from creatives and business professionals to students and gamers, Galaxy has a phone built for you.`,
+    image: 'areas/smartphone/previewSmartphone.png',
+    alt: 'Image that showsh a smartphone held in one hand.',
   })
   await Area.create({
     name: 'Software',
     introduction: 'Software area INTRODUCTION',
     description: 'Software area DESCRIPTION',
+    image: 'areas/software/softwarePreview.png',
+    alt:
+      'Image that shows a silhouette of a pc with a gear logo on it, which simbolizes utility software.',
   })
   await Area.create({
     name: 'Cloud',
     introduction: 'Cloud area INTRODUCTION',
     description: 'Cloud area DESCRIPTION',
+    image: 'areas/cloud/cloudPreview.png',
+    alt:
+      'Image that shows clouds containing icons of utility software exchanging messages between them.',
   })
 
   const flagship = await Type.create({

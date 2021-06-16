@@ -1,9 +1,8 @@
 <template>
-  <div class="article-mini">
+  <div class="areaPreview">
     <div class="card">
-      <h3>{{ title }}</h3>
-      <div class="img" :style="{ 'background-image': `url(${image})` }"></div>
-      <p>{{ summary }}</p>
+      <h3>{{ name }}</h3>
+      <img class="img" :src="require(`~/assets/${image}`)" />
     </div>
   </div>
 </template>
@@ -11,9 +10,8 @@
 <script>
 export default {
   props: {
-    title: { type: String, default: () => '' },
+    name: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
-    summary: { type: String, default: () => '' },
   },
 }
 </script>
