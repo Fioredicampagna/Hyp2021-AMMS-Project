@@ -206,7 +206,7 @@ async function insertFakeData() {
     alt: 'Image that shows the usb type-c flash drive closed from the side.',
   })
 
-  await Area.create({
+  const software = await Area.create({
     name: 'Software',
     introduction: 'Software area INTRODUCTION',
     description: 'Software area DESCRIPTION',
@@ -214,6 +214,47 @@ async function insertFakeData() {
     alt:
       'Image that shows a silhouette of a pc with a gear logo on it, which simbolizes utility software.',
   })
+
+  const trello = await Product.create({
+    name: 'Trello',
+    description: `Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your team works is unique—accomplish it all with Trello.`,
+    catchphrase: 'Trello helps teams move work forward.',
+    image: 'products/software/trello.png',
+    alt: 'Image that shows an icon representing Trello services.',
+  })
+
+  const pocket = await Product.create({
+    name: 'Pocket',
+    description: `Save articles, videos and stories from any publication, page or app. Curate your own space filled with everything you can’t wait to learn. Immerse yourself in great content anywhere – even offline. Read or listen without distraction, on any device.`,
+    catchphrase: 'Save content from everywhere.',
+    image: 'products/software/pocket.png',
+    alt: 'Image that shows an icon representing pocket services.',
+  })
+
+  const woven = await Product.create({
+    name: 'Woven',
+    description: `Built for today’s problems, Woven makes it easy to plan, join, and manage video events — helping you schedule with Zoom or Google Hangouts. And with multiple time zone integrations, Woven is built for remote work. `,
+    catchphrase: 'Power the future of work today. ',
+    image: 'products/software/woven.png',
+    alt: 'Image that shows an icon representing woven services.',
+  })
+
+  const evernote = await Product.create({
+    name: 'Evernote',
+    description: `Because there’s no single tool for all of your organizing needs, Evernote integrates with your favorite apps like Google Drive, Outlook, Salesforce, and Slack so you can be more productive from brainstorm to execution. `,
+    catchphrase: 'Accomplish more with better notes.',
+    image: 'products/software/evernote.png',
+    alt: 'Image that shows an icon representing evernote services.',
+  })
+
+  const todoist = await Product.create({
+    name: 'Todoist',
+    description: `Todoist gives you the confidence that everything’s organized and accounted for, so you can make progress on the things that are important to you.`,
+    catchphrase: 'From overwhelmed to on top of it.',
+    image: 'products/software/todoist.png',
+    alt: 'Image that shows an icon representing todoist services.',
+  })
+
   const cloud = await Area.create({
     name: 'Cloud services',
     introduction:
@@ -605,6 +646,12 @@ async function insertFakeData() {
   await cloud.addProduct(business)
   await cloud.addProduct(security)
   await cloud.addProduct(media)
+
+  await software.addProduct(trello)
+  await software.addProduct(todoist)
+  await software.addProduct(pocket)
+  await software.addProduct(woven)
+  await software.addProduct(evernote)
 
   await smartphone.addType(flagship)
   await smartphone.addType(budget)
