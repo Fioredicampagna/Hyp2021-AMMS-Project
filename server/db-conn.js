@@ -115,12 +115,10 @@ async function insertFakeData() {
   const galaxybooks = await Area.create({
     name: 'Galaxy Books',
     introduction:
-      'From home office to kitchen table to living room couch, Fake delivers the power to get it done, hi-res touchscreens and Dolby® Audio™ for music and shows, HD cameras to stay in touch, and the Galaxy OS you know.',
+      'From home office to kitchen table to living room couch. Reach the world with your book',
     description:
-      'Staying connected to what matters is easy when you and your loved ones can work, learn, play, and catch up with devices designed for every part of your life. Galaxy and Skype help you connect with the people who matter most. Built for one-on-one and group conversations of up to 50 people.' +
-      'Whether in your home office, at the kitchen table, or on your living room couch, be creative, work your way, and have fun. From a fresh, sleek take on classic laptop design to detachable tablets to our signature adjustable Kickstand, there’s a lot to love about Galaxy PCs that adapt to you.' +
-      'All Galaxy computers have HD video webcams that orient your face from whatever angle you take your calls, meetings, virtual get togethers, and more. Also, don’t drop video when you share your screen.',
-    image: 'areas/pc/previewimage.jpeg',
+      'Staying connected to what matters is easy when you and your loved ones can work, learn, play, and catch up with devices designed for every part of your life. Galaxy Books help you connect with the people who matter most.',
+    image: 'areas/pc/previewimage.jpg',
     alt:
       'Image that shows three products of the product line that represent the area as a whole',
   })
@@ -208,9 +206,9 @@ async function insertFakeData() {
 
   const software = await Area.create({
     name: 'Software',
-    introduction: 'Software area INTRODUCTION',
-    description: 'Software area DESCRIPTION',
-    image: 'areas/software/softwarePreview.png',
+    introduction: 'Powerful creativity and productivity tools — apps that help you explore, connect and work more efficiently.',
+    description: 'From home to business, from desktop to web and the devices in between, we deliver the tools you need to create your best work.',
+    image: 'areas/software/softwarePreview.jpeg',
     alt:
       'Image that shows a silhouette of a pc with a gear logo on it, which simbolizes utility software.',
   })

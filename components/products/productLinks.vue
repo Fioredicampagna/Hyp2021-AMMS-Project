@@ -10,13 +10,15 @@
         <!--div class="content">
           {{ product.image }}
         </div-->
-        <img :src="require(`~/assets/${product.image}`)" />
+        <div class="image-holder">
+          <img :src="require(`~/assets/${product.image}`)" />
+          <h4>{{ product.name }}</h4>
+        </div>
         <nuxt-link
           style="text-align: center"
           class="link"
           :to="`/products/${product.name}`"
         >
-          {{ product.name }}
         </nuxt-link>
       </div>
     </div>
@@ -37,18 +39,30 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 30px 0;
-}
-
 .link {
   color: cadetblue;
   padding: 20px;
   margin: 10px;
 }
-
+.image-holder {
+  border-radius: 25px;
+  background: #fff5ec;
+  margin: 5px;
+}
+.col-md-4 {
+  text-align: center;
+}
 img {
-  max-width: 600px;
+  padding-top: 20px;
+  /* max-width: 600px; */
+  width: 80%;
+  height: 300px;
+  max-width: 400px;
+  margin: auto;
+  /* background-size: cover; */
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
 }
 p {
   text-align: left;

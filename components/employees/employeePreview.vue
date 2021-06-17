@@ -29,7 +29,11 @@ p {
 }
 
 .col-sm {
-  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+  text-align: center;
+  /* box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2); */
+  border-radius: 25px;
+  background: #fff5ec;
+  margin: 5px;
 }
 
 img {
@@ -40,6 +44,6 @@ img {
   /* background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 </style>

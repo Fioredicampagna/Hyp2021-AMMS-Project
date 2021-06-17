@@ -1,17 +1,17 @@
 <template>
   <section class="container">
-    <header>
-      <h1>{{ area.name }}</h1>
-      <h4>{{ area.introduction }}</h4>
+    <h1>{{ area.name }}</h1>
+    <div class="row">
       <div class="col-md-6">
         <img img :src="require(`~/assets/${area.image}`)" :alt="area.alt" />
       </div>
-    </header>
-    <article>
-      <p>
-        {{ area.description }}
-      </p>
-    </article>
+      <div class="col-md-6">
+        <h4>{{ area.introduction }}</h4>
+        <p>
+          {{ area.description }}
+        </p>
+      </div>
+    </div>
     <section v-if="area.types.length != 0">
       <h4>Types</h4>
       <div
@@ -30,11 +30,11 @@
         </nuxt-link>
       </div>
     </section>
-    <section class="products">
+    <section v-if="area.products.length != 0" class="products">
       <h3>Products</h3>
       <product-links :products="area.products"></product-links>
     </section>
-    <section class="products">
+    <section v-if="area.employees.length != 0" class="products">
       <h3>Employees</h3>
       <employee-links :employees="area.employees"></employee-links>
     </section>
@@ -96,6 +96,14 @@ export default {
 <style scoped>
 h4 {
   margin: 30px 0;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+}
+
+h3 {
+  padding: 20px;
 }
 .col-sm-4 {
   color: cadetblue;
@@ -103,11 +111,18 @@ h4 {
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
 }
+.row {
+  margin: 20px;
+}
 img {
   max-width: 600px;
 }
 p {
-  text-align: left;
+  text-align: center;
   margin-top: 40px;
+}
+
+section {
+  margin-top: 50px;
 }
 </style>
