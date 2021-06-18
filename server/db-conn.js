@@ -65,6 +65,7 @@ function defineDatabaseStructure() {
       designation: DataTypes.STRING,
       presentation: DataTypes.TEXT,
       image: DataTypes.STRING,
+      alt: DataTypes.TEXT,
     },
     {
       underscored: true,
@@ -206,8 +207,10 @@ async function insertFakeData() {
 
   const software = await Area.create({
     name: 'Software',
-    introduction: 'Powerful creativity and productivity tools — apps that help you explore, connect and work more efficiently.',
-    description: 'From home to business, from desktop to web and the devices in between, we deliver the tools you need to create your best work.',
+    introduction:
+      'Powerful creativity and productivity tools — apps that help you explore, connect and work more efficiently.',
+    description:
+      'From home to business, from desktop to web and the devices in between, we deliver the tools you need to create your best work.',
     image: 'areas/software/softwarePreview.jpeg',
     alt:
       'Image that shows a silhouette of a pc with a gear logo on it, which simbolizes utility software.',
@@ -422,6 +425,7 @@ async function insertFakeData() {
 
       Hanks made his breakthrough with leading roles in the comedies Splash and Big. He won two consecutive Academy Awards for Best Actor for starring as a gay lawyer suffering from AIDS in Philadelphia and the title character in Forrest Gump. Hanks collaborated with film director Steven Spielberg on five films: Saving Private Ryan, Catch Me If You Can, The Terminal, Bridge of Spies, and The Post, as well as the 2001 miniseries Band of Brothers, which launched him as a director, producer, and screenwriter. Hanks's other films include the romantic comedies Sleepless in Seattle and You've Got Mail; the dramas Apollo 13, The Green Mile, Cast Away, Road to Perdition, and Cloud Atlas; and the biographical dramas Charlie Wilson's War, Captain Phillips, Saving Mr. Banks, Sully, A Beautiful Day in the Neighborhood, and News of the World. He has also appeared as the title character in the Robert Langdon film series, and has voiced Sheriff Woody in the Toy Story film series.`,
     image: 'employees/tom_hanks.jpg',
+    alt: 'Front view of the employee Tom Hanks.',
   })
 
   const willsmith = await Employee.create({
@@ -433,6 +437,7 @@ async function insertFakeData() {
 
       Smith has been ranked as the most bankable star worldwide by Forbes. In April 2007, Newsweek called him "the most powerful actor in Hollywood". As of 2014, 17 of the 21 films in which he has had leading roles have accumulated worldwide gross earnings of over $100 million each, with five taking in over $500 million each in global box office receipts. As of 2016, his films have grossed $7.5 billion at the global box office. For his performances as boxer Muhammad Ali in Ali and stockbroker Chris Gardner in The Pursuit of Happyness, Smith received Academy Award nominations for Best Actor.`,
     image: 'employees/will_smith.jpg',
+    alt: 'Front view of the employee Will Smith.',
   })
 
   const denzwashington = await Employee.create({
@@ -452,6 +457,7 @@ async function insertFakeData() {
       As of 2019, his films have grossed $7.2 billion worldwide, 
       and he has placed eight times in annual rankings of the world's highest-paid actors.`,
     image: 'employees/leonardo_dicaprio.jpg',
+    alt: 'Front view of the employee Leonardo DiCaprio.',
   })
 
   const morgfreeman = await Employee.create({
@@ -461,6 +467,7 @@ async function insertFakeData() {
       He has appeared in a range of film genres portraying character roles and is particularly known for his distinctive deep voice. 
       Freeman is the recipient of various accolades, including an Academy Award, a Golden Globe Award, and a Screen Actors Guild`,
     image: 'employees/morgan_freeman.jpg',
+    alt: 'Front view of the employee Morgan Freeman.',
   })
 
   const bradpitt = await Employee.create({
@@ -472,6 +479,7 @@ async function insertFakeData() {
 
       Pitt starred in Fight Club and the heist film Ocean's Eleven, as well as its sequels, Ocean's Twelve and Ocean's Thirteen. His greatest commercial successes have been Ocean's Eleven , Troy, Mr. & Mrs. Smith, World War Z, and Once Upon a Time in Hollywood, for which he won a second Golden Globe Award and the Academy Award for Best Supporting Actor. Pitt's other Academy Award nominated performances were in The Curious Case of Benjamin Button and Moneyball. He produced The Departed and 12 Years a Slave, both of which won the Academy Award for Best Picture, and also The Tree of Life, Moneyball, and The Big Short, all of which were nominated for Best Picture. Alongside George Clooney, Pitt is one of two actors to have won Academy Awards for both Best Supporting Actor and Best Picture.`,
     image: 'employees/brad_pitt.jpg',
+    alt: 'Front view of the employee Brad Pitt.',
   })
 
   const billgates = await Employee.create({
@@ -483,6 +491,7 @@ async function insertFakeData() {
 
       Since 1987, Bill Gates has been included in the Forbes list of the world's wealthiest people. From 1995 to 2017, he held the Forbes title of the richest person in the world every year except from 2010 to 2013.`,
     image: 'employees/billgates.jpg',
+    alt: 'Front view of the employee Bill Gates.',
   })
 
   const edboon = await Employee.create({
@@ -494,6 +503,7 @@ async function insertFakeData() {
 
       Boon was ranked #100 in IGN's 2009 list of "Top 100 Game Creators" for his involvement in the Mortal Kombat series. He continues to be directly involved with the MK franchise and its multimedia side projects, and has also provided voice acting and motion capture work for the games.`,
     image: 'employees/edboon.jpg',
+    alt: 'Front view of the employee Ed Boon.',
   })
 
   const filsaime = await Employee.create({
@@ -505,6 +515,8 @@ async function insertFakeData() {
     
     Fils-Aimé retired as president of Nintendo of America on April 15, 2019. He subsequently became a Leader in Residence at Cornell University and later named to the Board of Directors for AMMS.`,
     image: 'employees/filsaime.jpg',
+    alt:
+      'Photograph of the Employee Reggie Fils-Aimé where he is talking for an audience.',
   })
 
   const johncarmack = await Employee.create({
@@ -516,6 +528,7 @@ async function insertFakeData() {
     
     In 2013, he resigned from id to work full-time at AMMS, where he serves as Lead Senior Programmer`,
     image: 'employees/johncarmack.jpeg',
+    alt: 'Front view of the employee John Carmack.',
   })
 
   const johnromero = await Employee.create({
@@ -527,6 +540,7 @@ async function insertFakeData() {
     
     His game designs and development tools, along with new programming techniques created and implemented by id Software's lead programmer John D. Carmack, led to a mass popularization of the first-person shooter in the 1990s.`,
     image: 'employees/johnromero.jpg',
+    alt: 'Front view of the employee John Romero.',
   })
 
   const kaneko = await Employee.create({
@@ -538,6 +552,8 @@ async function insertFakeData() {
     
     He also illustrates covers for several novels such as The Case of the Dragon Slayer.`,
     image: 'employees/Kaneko.webp',
+    alt:
+      'Edited portrait of the employee Kazuma Kaneko, which shows his title and name in a stylized way.',
   })
 
   const linus = await Employee.create({
@@ -549,6 +565,7 @@ async function insertFakeData() {
 
     He was honored, along with Shinya Yamanaka, with the 2012 Millennium Technology Prize by the Technology Academy Finland "in recognition of his creation of a new open source operating system for computers leading to the widely used Linux kernel."`,
     image: 'employees/linus.jpg',
+    alt: 'Front view of the employee Linus Torvalds.',
   })
 
   const michelancel = await Employee.create({
@@ -560,6 +577,7 @@ async function insertFakeData() {
     
     In 2017 he began working for AMMS, putting his creative skills to great use for the company.`,
     image: 'employees/michelancel.jpg',
+    alt: 'Front view of the employee Michel Ancel.',
   })
 
   const miyamoto = await Employee.create({
@@ -571,6 +589,7 @@ async function insertFakeData() {
 
     Born in Sonobe, Japan, Miyamoto graduated from Kanazawa Municipal College of Industrial Arts. He originally sought a career as a manga artist, until developing an interest in video games and software development.`,
     image: 'employees/miyamoto.jpg',
+    alt: 'Front view of the employee Shigeru Miyamoto.',
   })
 
   const molyneux = await Employee.create({
@@ -582,6 +601,7 @@ async function insertFakeData() {
     
     He currently works at AMMS as .`,
     image: 'employees/molyneux.jpg',
+    alt: 'Front view of the employee Peter Molyneux.',
   })
 
   const nagoshi = await Employee.create({
@@ -591,6 +611,8 @@ async function insertFakeData() {
     
     He was the chief creative officer for Sega until 2021 when he left the company to become chief information officer for AMMS.`,
     image: 'employees/nagoshi.jpg',
+    alt:
+      "Photograph of the employee Toshihiro Nagoshi, while he's attending an interview.",
   })
 
   const stevejobs = await Employee.create({
@@ -602,6 +624,8 @@ async function insertFakeData() {
     
     Jobs is widely recognized as a pioneer of the personal computer revolution of the 1970s and 1980s, along with his early business partner and fellow Apple co-founder Steve Wozniak.`,
     image: 'employees/stevejobs.jpg',
+    alt:
+      "Photograph of the employee Steve Jobs presenting one of the company's new products.",
   })
 
   const toddhoward = await Employee.create({
@@ -611,6 +635,20 @@ async function insertFakeData() {
     
     He serves as executive producer at AMMS, where he has led the development of the majority of the software services offered by the company.`,
     image: 'employees/toddhoward.jpg',
+    alt: 'Front view of the employee Todd Howard.',
+  })
+
+  const chrislattner = await Employee.create({
+    name: 'Chris Lattner',
+    designation: 'Software engineer',
+    presentation: `Chris Lattner is an American software engineer best known as the main author of LLVM and related projects such as the Clang compiler and the Swift programming language.
+    
+    He joined AMMS as Software Engineer, after two years at Google Brain.
+    
+    Prior to that, he briefly served as Vice President of Autopilot Software at Tesla, Inc. and worked at Apple Inc. as Senior Director of the Developer Tools department, leading the Xcode, Instruments, and compiler teams.`,
+    image: 'employees/chrislattner.jpg',
+    alt:
+      'Photograph of the Employee Chris Lattner where he is talking for an audience.',
   })
 
   await galaxybooks.addType(monitors)

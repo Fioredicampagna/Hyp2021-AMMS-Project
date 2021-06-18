@@ -7,19 +7,12 @@
         class="col-md-4"
         @click="goToPath(`/products/${product.name}`)"
       >
-        <!--div class="content">
-          {{ product.image }}
-        </div-->
         <div class="image-holder">
-          <img :src="require(`~/assets/${product.image}`)" />
+          <img :src="require(`~/assets/${product.image}`)" :alt="product.alt" />
           <h4>{{ product.name }}</h4>
+          <!--nuxt-link class="link" :to="`/products/${product.name}`">
+          </nuxt-link-->
         </div>
-        <nuxt-link
-          style="text-align: center"
-          class="link"
-          :to="`/products/${product.name}`"
-        >
-        </nuxt-link>
       </div>
     </div>
   </div>
@@ -40,13 +33,15 @@ export default {
 
 <style scoped>
 .link {
-  color: cadetblue;
+  text-align: center;
+  color: rgb(0, 0, 0);
   padding: 20px;
   margin: 10px;
 }
 .image-holder {
+  cursor: pointer;
   border-radius: 25px;
-  background: #fff5ec;
+  background: #f7f7f8;
   margin: 5px;
 }
 .col-md-4 {

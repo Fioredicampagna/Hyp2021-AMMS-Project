@@ -2,7 +2,7 @@
   <div class="areaPreview">
     <div class="card">
       <h3>{{ name }}</h3>
-      <img class="img" :src="require(`~/assets/${image}`)" />
+      <img class="img" :src="require(`~/assets/${image}`)" :alt="alt" />
     </div>
   </div>
 </template>
@@ -12,6 +12,7 @@ export default {
   props: {
     name: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
+    alt: { type: String, default: () => '' },
   },
 }
 </script>

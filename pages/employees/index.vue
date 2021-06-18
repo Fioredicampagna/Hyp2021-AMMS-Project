@@ -14,6 +14,7 @@
           :name="employee.name"
           :designation="employee.designation"
           :image="employee.image"
+          :alt="employee.alt"
         ></employee-preview>
       </div>
     </section>

@@ -11,7 +11,11 @@
         @click="goToArea(`/areas/${area.name}`)"
       >
         <p>{{ area.name }}</p>
-        <area-preview :name="area.name" :image="area.image"></area-preview>
+        <area-preview
+          :name="area.name"
+          :image="area.image"
+          :alt="area.alt"
+        ></area-preview>
       </div>
     </section>
   </main>

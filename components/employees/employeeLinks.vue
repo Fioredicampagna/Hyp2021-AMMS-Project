@@ -10,7 +10,7 @@
         <!--div class="content">
           {{ product.image }}
         </div-->
-        <img :src="require(`~/assets/${employee.image}`)" />
+        <img :src="require(`~/assets/${employee.image}`)" :alt="employee.alt" />
         <nuxt-link
           style="text-align: center"
           class="link"
@@ -40,7 +40,9 @@ export default {
 h4 {
   margin: 30px 0;
 }
-
+.col-md-4 {
+  cursor: pointer;
+}
 .link {
   color: cadetblue;
   padding: 20px;

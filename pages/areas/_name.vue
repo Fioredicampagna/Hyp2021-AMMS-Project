@@ -24,7 +24,7 @@
         <nuxt-link
           style="text-align: center"
           class="col-sm-4"
-          :to="`/producttypes/${type.name}`"
+          :to="`/product-types/${type.name}`"
         >
           {{ type.name }}
         </nuxt-link>

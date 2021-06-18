@@ -1,32 +1,36 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <section class="col-md-3">
-        <img :src="require(`~/assets/${employee.image}`)" />
-        <h4>{{ employee.name }}</h4>
-      </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <section class="col-md-3">
+          <img
+            :src="require(`~/assets/${employee.image}`)"
+            :alt="employee.alt"
+          />
+          <h4>{{ employee.name }}</h4>
+        </section>
 
-      <section class="col-md-7">
-        <p>
-          {{ employee.presentation }}
-        </p>
-      </section>
+        <section class="col-md-7">
+          <p>
+            {{ employee.presentation }}
+          </p>
+        </section>
 
-      <nuxt-link
-        v-if="employee.area !== null"
-        style="text-align: center"
-        class="link"
-        :to="`/areas/${employee.area.name}`"
-      >
-        {{ employee.area.name }}
-      </nuxt-link>
-
-      <section v-if="employee.products.length != 0">
-        <h2>Has worked on:</h2>
-        <product-links :products="employee.products"></product-links>
-      </section>
+        <nuxt-link
+          v-if="employee.area !== null"
+          style="text-align: center"
+          class="link"
+          :to="`/areas/${employee.area.name}`"
+        >
+          {{ employee.area.name }}
+        </nuxt-link>
+      </div>
+      <h2>Has worked on:</h2>
     </div>
-  </div>
+    <section v-if="employee.products.length != 0">
+      <product-links :products="employee.products"></product-links>
+    </section>
+  </section>
 </template>
 
 <script>
@@ -98,5 +102,11 @@ img {
 p {
   margin: 10px;
   text-align: left;
+}
+.link {
+  color: cadetblue;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
 }
 </style>

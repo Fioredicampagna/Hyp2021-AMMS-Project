@@ -1,29 +1,44 @@
 <template>
-  <form>
-    <h3>Contact us</h3>
+  <section>
+    <p>
+      Our team is always here to help.<br />
+      You can contact us during business hours at: <br />
+      Italy 0423 555 321 <br />
+      Australia 1420 333 777 <br />
+      USA 1987 431 6238 <br />Canada 1555 310 4720 <br />
+    </p>
+    <form>
+      <h3>Contact us</h3>
 
-    <label class="grey-text">Your name</label>
-    <input type="text" class="form-control" />
+      <label class="grey-text"
+        >Your name
+        <input type="text" class="form-control" />
+      </label>
 
-    <br />
+      <br />
 
-    <label class="grey-text">Your email</label>
-    <input type="email" class="form-control" />
+      <label class="grey-text"
+        >Your email <input type="email" class="form-control"
+      /></label>
 
-    <br />
+      <br />
 
-    <label class="grey-text">Subject</label>
-    <input type="text" class="form-control" />
+      <label class="grey-text"
+        >Subject <input type="text" class="form-control"
+      /></label>
 
-    <br />
+      <br />
 
-    <label class="grey-text">Your message</label>
-    <textarea type="text" class="form-control" rows="3"></textarea>
+      <label class="grey-text"
+        >Your message
+        <textarea type="text" class="form-control" rows="3"></textarea>
+      </label>
 
-    <div class="text-center mt-4">
-      <button class="btn btn-outline-warning" type="submit">Send</button>
-    </div>
-  </form>
+      <div class="text-center mt-4">
+        <button class="btn btn-outline-warning" type="submit">Send</button>
+      </div>
+    </form>
+  </section>
 </template>
 
 <script>
@@ -128,5 +143,8 @@ form {
   background-repeat: no-repeat;
   margin-bottom: 20px;
   /* box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2); */
+}
+p {
+  text-align: center;
 }
 </style>

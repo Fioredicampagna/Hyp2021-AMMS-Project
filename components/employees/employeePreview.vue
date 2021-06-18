@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm">
         <!-- <div class="img" :style="{ 'background-image': `url(${image})` }"></div> -->
-        <img :src="require(`~/assets/${image}`)" />
+        <img :src="require(`~/assets/${image}`)" :alt="alt" />
         <h5>{{ name }}</h5>
         <h6>{{ designation }}</h6>
         <!-- <img src="@/assets/employees/images/emp-1.jpg">  -->
@@ -19,6 +19,7 @@ export default {
     name: { type: String, default: () => '' },
     image: { type: String, default: () => '' },
     designation: { type: String, default: () => '' },
+    alt: { type: String, default: () => '' },
   },
 }
 </script>
@@ -32,7 +33,7 @@ p {
   text-align: center;
   /* box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2); */
   border-radius: 25px;
-  background: #fff5ec;
+  background: #f7f7f8;
   margin: 5px;
 }
 
