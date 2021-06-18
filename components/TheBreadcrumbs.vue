@@ -31,14 +31,12 @@ export default {
 </script>
 
 <style>
-.breadcrumbs {
+.breadcrumb {
   height: fit-content;
+  display: inline-flex;
+  font-size: 18px;
   background-color: whitesmoke;
-}
-.breadcrumbs li {
-  display: inline;
-  font-size: 14;
-  background-color: transparent;
+  margin-top: 5px;
 }
 
 .link {

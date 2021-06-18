@@ -78,8 +78,13 @@ ul {
   justify-content: space-between;
   width: 100%;
   margin: auto;
-  max-width: 50%;
+  max-width: 70%;
 }
+
+.landmark {
+  margin-right: 20px;
+}
+
 .dropdown-content {
   display: flex;
   position: relative;
