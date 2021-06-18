@@ -21,7 +21,7 @@ async function init() {
           model: Product,
           through: 'RelatedProducts',
           as: 'related',
-          attributes: ['name', 'image'],
+          attributes: ['name', 'image', 'alt'],
           through: {
             // through again doesn't create any issue
             attributes: [], // this helps removing the join table in returned data
@@ -29,7 +29,7 @@ async function init() {
           },
         },
         { model: Type, attributes: ['name'] },
-        { model: Employee, attributes: ['name', 'image'] },
+        { model: Employee, attributes: ['name', 'image', 'alt'] },
         { model: Area, attributes: ['name'] },
       ],
     })
@@ -67,8 +67,8 @@ async function init() {
     const area = await Area.findOne({
       where: { name },
       include: [
-        { model: Product, attributes: ['name', 'image'] },
-        { model: Employee, attributes: ['name', 'image'] },
+        { model: Product, attributes: ['name', 'image', 'alt'] },
+        { model: Employee, attributes: ['name', 'image', 'alt'] },
         { model: Type, attributes: ['name'] },
       ], // -> this is the way we "include" also products inside Areas
     })
