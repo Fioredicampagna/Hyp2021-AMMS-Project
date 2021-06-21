@@ -148,6 +148,34 @@ async function insertFakeData() {
     alt: 'Image that shows the galaxy book s product from the front',
   })
 
+  const pro = await Product.create({
+    name: 'Galaxy Book Pro 360, 13.3", Mystic Navy',
+    description:
+      'Make everything you do look unbelievably brilliant with a 13.3”/15.6” AMOLED screen that’s the most advanced ever in a Galaxy Book. Lose yourself in your favorite content with vibrant cinematic-like viewing at 100% color volume and a contrast ratio that’s millions-to-one. Work inside or in direct sunlight, either way, the screen adapts to your space to constantly give you perfect color and lessen eye strain by reducing harmful blue light.',
+    catchphrase: 'Make everything easy on the eyes',
+    image: 'products/pc/pro.jpg',
+    alt: 'Image that shows the Galaxy Book Pro product from the front',
+  })
+
+  const portablessd = await Product.create({
+    name: 'Portable SSD T5 USB 3.1 1TB (Black)',
+    description:
+      'Get your entertainment, coursework, or games anywhere, on any device. Feel the freedom of huge storage and speedy transfers to laptops, smartphones, game consoles and more. The latest T5 easily slides in your pocket or purse.',
+    catchphrase: 'The world in your pocket',
+    image: 'products/pc/portablessd.jpg',
+    alt: 'Image that shows the Portable SSD product from the front',
+  })
+
+  const hires = await Product.create({
+    name:
+      '34" S65UA Ultra WQHD High Resolution Monitor with 1000R curvature and USB-C',
+    description:
+      'Within games, movies or design projects, surround yourself with the 34" ultra-wide curved display featuring a 21:9 aspect ratio. Ultra-WQHD provides the simplest way to maximize your screen real estate and experience truly seamless multitasking on just one screen.',
+    catchphrase: 'Feel fully immersed',
+    image: 'products/pc/hires.jpg',
+    alt: 'Image that shows the High Resolution Monitor product from the front',
+  })
+
   const flexblue = await Product.create({
     name: 'Galaxy Book Flex, 15", i7, Royal Blue',
     description:
@@ -447,6 +475,7 @@ async function insertFakeData() {
       He has been described as an actor who reconfigured "the concept of classic movie stardom," 
       mostly associating with characters defined by their grace, dignity, humanity, and inner strength.`,
     image: 'employees/denzel_washington.jpg',
+    alt: 'Front view of the employee Denzel Washington.',
   })
 
   const leodicaprio = await Employee.create({
@@ -662,14 +691,20 @@ async function insertFakeData() {
   await galaxybooks.addProduct(uhdmonitor)
   await galaxybooks.addProduct(ssd)
   await galaxybooks.addProduct(usb)
+  await galaxybooks.addProduct(pro)
+  await galaxybooks.addProduct(hires)
+  await galaxybooks.addProduct(portablessd)
 
   await laptops.addProduct(book)
   await laptops.addProduct(flexblue)
   await laptops.addProduct(ionwhite)
+  await laptops.addProduct(pro)
   await monitors.addProduct(monitorcurve)
   await monitors.addProduct(uhdmonitor)
+  await monitors.addProduct(hires)
   await accessories.addProduct(ssd)
   await accessories.addProduct(usb)
+  await accessories.addProduct(portablessd)
 
   //await galaxybooks.addEmployee(tomhanks)
   //await galaxybooks.addEmployee(denzwashington)
