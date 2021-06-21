@@ -23,7 +23,7 @@
           v-if="product.type !== null"
           style="text-align: center"
           class="link"
-          :to="`/producttypes/${product.type.name}`"
+          :to="`/product-types/${product.type.name}`"
         >
           {{ product.type.name }}
         </nuxt-link>

@@ -153,7 +153,7 @@ async function insertFakeData() {
     description:
       'Make everything you do look unbelievably brilliant with a 13.3”/15.6” AMOLED screen that’s the most advanced ever in a Galaxy Book. Lose yourself in your favorite content with vibrant cinematic-like viewing at 100% color volume and a contrast ratio that’s millions-to-one. Work inside or in direct sunlight, either way, the screen adapts to your space to constantly give you perfect color and lessen eye strain by reducing harmful blue light.',
     catchphrase: 'Make everything easy on the eyes',
-    image: 'products/pc/pro.jpg',
+    image: 'products/pc/pro.png',
     alt: 'Image that shows the Galaxy Book Pro product from the front',
   })
 
@@ -162,7 +162,7 @@ async function insertFakeData() {
     description:
       'Get your entertainment, coursework, or games anywhere, on any device. Feel the freedom of huge storage and speedy transfers to laptops, smartphones, game consoles and more. The latest T5 easily slides in your pocket or purse.',
     catchphrase: 'The world in your pocket',
-    image: 'products/pc/portablessd.jpg',
+    image: 'products/pc/portablessd.png',
     alt: 'Image that shows the Portable SSD product from the front',
   })
 
@@ -172,7 +172,7 @@ async function insertFakeData() {
     description:
       'Within games, movies or design projects, surround yourself with the 34" ultra-wide curved display featuring a 21:9 aspect ratio. Ultra-WQHD provides the simplest way to maximize your screen real estate and experience truly seamless multitasking on just one screen.',
     catchphrase: 'Feel fully immersed',
-    image: 'products/pc/hires.jpg',
+    image: 'products/pc/hires.png',
     alt: 'Image that shows the High Resolution Monitor product from the front',
   })
 
