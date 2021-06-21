@@ -3,9 +3,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 // Development
 // const db = new Sequelize('postgres://berk:123456@localhost:5432/amms')
 // const db = new Sequelize('postgres://postgres:password@localhost:5432/AMMS')
-//const db = new Sequelize(
+// const db = new Sequelize(
 //  'postgres://postgres:PwdPostgre@localhost:5432/hypermedia-test'
-//)
+// )
 
 // Production
 const pg = require('pg')
@@ -362,6 +362,40 @@ async function insertFakeData() {
         Infinity Displays—at the incredible value you deserve.`,
   })
 
+  const flagshipV7 = await Product.create({
+    name: 'Flagship-V7',
+    description: `It's the ultimate gaming experience that goes where you go.
+    It's a director-grade 8K video camera.
+    It's a multitasking computer suite.
+    It's anything but your average smartphone.
+    Introducing the Powerphone that forever changes how you work and play.
+    This is Flagship V7.`,
+    catchphrase: 'A PC in your pocket.',
+    image: 'products/smartphone/flagshipV7.jpg',
+    alt: 'Image that shows front and back of the flagshipV7.',
+  })
+
+  const flagshipV6 = await Product.create({
+    name: 'Flagship-V6',
+    description: `Empower your team with the multitasking device that injects next-level power 
+    into your work and play with blazing 5G connectivity and an ultra-responsive S Pen.
+    Save for your business with bulk trade-in and exclusive discounts on cloud software.`,
+    catchphrase: 'As beautiful as it is powerful.',
+    image: 'products/smartphone/flagshipV6.jpg',
+    alt: 'Image that shows front and back of the flagshipV6.',
+  })
+
+  const flagshipV5 = await Product.create({
+    name: 'Flagship-V5',
+    description: `Harness a 30 minute charge for power that goes all day.
+    Or ditch the cord with Fast Wireless Charging 2.0.
+    No time is right to be caught without a charge. Galaxy Note10 comes with the Note's largest battery yet, 
+    with cutting-edge battery intelligence to last as long as you need it.`,
+    catchphrase: 'More power. More speed. More storage.',
+    image: 'products/smartphone/flagshipV5.jpg',
+    alt: 'Image that shows front and back of the flagshipV5.',
+  })
+
   const flagshipV4 = await Product.create({
     name: 'Flagship-V4',
     description: `Introducing Flagship V4.The highest resolution photos and video on a smartphone.
@@ -413,36 +447,55 @@ async function insertFakeData() {
     alt: 'Image that shows front and back of the flagshipV1.',
   })
 
-  const budgetV3 = await Product.create({
-    name: 'Budget-V3',
-    description: `Introducing the Budget V3, a smartphone that delivers all of the incredible features 
+  const budgetV5 = await Product.create({
+    name: 'Budget-V5',
+    description: `Introducing the Budget V5, a smartphone that delivers all of the incredible features 
       and performance you want from a Galaxy device, at an amazing value. 
       With blazing 5G speed, a long-lasting battery, and an impressive quad camera, 
-      it’s time to see why the V3 gives you so much more than you bargained for. 
-      The Budget V3 series phone starts at $349.99 with eligible trade-in.`,
+      it’s time to see why the V5 gives you so much more than you bargained for. 
+      The Budget V5 series phone starts at $349.99 with eligible trade-in.`,
     catchphrase: '5G for all.',
-    image: 'products/smartphone/budgetV3.png',
+    image: 'products/smartphone/budgetV5.png',
+    alt: 'Image that shows front and back of the budgetV5.',
+  })
+
+  const budgetV4 = await Product.create({
+    name: 'Budget-V4',
+    description: `Outfitted with awesome innovations and core features, 
+      the budget V4 lets you stay connected without breaking the bank. 
+      Capture share-worthy photos or videos with a tap of a finger, go longer with a 2-day battery, 
+      scroll through your feed at lightning speed and stream what you want, when you want.`,
+    catchphrase: 'Introducing the Budget V4.',
+    image: 'products/smartphone/budgetV4.jpg',
+    alt: 'Image that shows front and back of the budgetV4.',
+  })
+
+  const budgetV3 = await Product.create({
+    name: 'Budget-V3',
+    description: `Budget V1 pairs awesome core features with our most affordable 5G devices on the market. 
+      That means you get a long-lasting battery, expandable storage, multiple cameras, 
+      a super-crisp display and blazing-fast 5G speed`,
+    catchphrase: 'Introducing the Budget V3.',
+    image: 'products/smartphone/budgetV3.jpg',
     alt: 'Image that shows front and back of the budgetV3.',
   })
 
   const budgetV2 = await Product.create({
     name: 'Budget-V2',
-    description: `Outfitted with awesome innovations and core features, 
-      the budget V2 lets you stay connected without breaking the bank. 
-      Capture share-worthy photos or videos with a tap of a finger, go longer with a 2-day battery, 
-      scroll through your feed at lightning speed and stream what you want, when you want.`,
-    catchphrase: 'Introducing the Budget V2.',
-    image: 'products/smartphone/budgetV2.jpg',
+    description: `Expand your view to the 6.5-inch Infinity-V Display of Budget V2 and see what you've been missing.
+    Thanks to HD+ technology, your everyday content looks sharp, crisp and clear.`,
+    catchphrase: 'More display means more room to play.',
+    image: 'products/smartphone/budgetV2.png',
     alt: 'Image that shows front and back of the budgetV2.',
   })
 
   const budgetV1 = await Product.create({
     name: 'Budget-V1',
-    description: `Budget V1 pairs awesome core features with our most affordable 5G devices on the market. 
-      That means you get a long-lasting battery, expandable storage, multiple cameras, 
-      a super-crisp display and blazing-fast 5G speed`,
-    catchphrase: 'Introducing the Budget V1.',
-    image: 'products/smartphone/budgetV1.jpg',
+    description: `Budget V1 helps you stand out from the crowd with a sleek look that matches your style.
+    Its smooth curves feel like they're made for your hand, for a grip that's easy to hold throughout the day.
+    Choose the color that fits you, like the classic Black or White, or colorful Red or Blue`,
+    catchphrase: 'A big screen for a better view.',
+    image: 'products/smartphone/budgetV1.png',
     alt: 'Image that shows front and back of the budgetV1.',
   })
 
@@ -740,9 +793,14 @@ async function insertFakeData() {
   await smartphone.addProduct(flagshipV2.id)
   await smartphone.addProduct(flagshipV3.id)
   await smartphone.addProduct(flagshipV4.id)
+  await smartphone.addProduct(flagshipV5.id)
+  await smartphone.addProduct(flagshipV6.id)
+  await smartphone.addProduct(flagshipV7.id)
   await smartphone.addProduct(budgetV1.id)
   await smartphone.addProduct(budgetV2.id)
   await smartphone.addProduct(budgetV3.id)
+  await smartphone.addProduct(budgetV4.id)
+  await smartphone.addProduct(budgetV5.id)
 
   await willsmith.addProduct(flagshipV1)
   await leodicaprio.addProduct(budgetV2)
