@@ -125,6 +125,8 @@ h1 {
     /* justify-content: center; */
     height: 600px;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
@@ -136,6 +138,8 @@ h1 {
     /* justify-content: center; */
     height: 900px;
     width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
