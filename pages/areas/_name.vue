@@ -17,8 +17,8 @@
       <div
         v-for="(type, typeIndex) of area.types"
         :key="'type-' + typeIndex"
-        class="row"
         style="text-align: center"
+        class="row"
         @click="goToPath(`/product-types/${type.name}`)"
       >
         <nuxt-link
@@ -110,6 +110,7 @@ h3 {
   padding: 20px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+  justify-content: space-between;
 }
 .row {
   margin: 20px;

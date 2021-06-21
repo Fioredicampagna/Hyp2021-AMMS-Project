@@ -10,7 +10,6 @@
         class="article"
         @click="goToArea(`/areas/${area.name}`)"
       >
-        <p>{{ area.name }}</p>
         <area-preview
           :name="area.name"
           :image="area.image"

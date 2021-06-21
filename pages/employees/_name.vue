@@ -25,7 +25,7 @@
           {{ employee.area.name }}
         </nuxt-link>
       </div>
-      <h2>Has worked on:</h2>
+      <h2 v-if="employee.products.length != 0">Has worked on:</h2>
     </div>
     <section v-if="employee.products.length != 0">
       <product-links :products="employee.products"></product-links>

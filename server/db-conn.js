@@ -485,7 +485,7 @@ async function insertFakeData() {
     description: `Expand your view to the 6.5-inch Infinity-V Display of Budget V2 and see what you've been missing.
     Thanks to HD+ technology, your everyday content looks sharp, crisp and clear.`,
     catchphrase: 'More display means more room to play.',
-    image: 'products/smartphone/budgetV2.png',
+    image: 'products/smartphone/budgetV2.jpg',
     alt: 'Image that shows front and back of the budgetV2.',
   })
 
@@ -495,7 +495,7 @@ async function insertFakeData() {
     Its smooth curves feel like they're made for your hand, for a grip that's easy to hold throughout the day.
     Choose the color that fits you, like the classic Black or White, or colorful Red or Blue`,
     catchphrase: 'A big screen for a better view.',
-    image: 'products/smartphone/budgetV1.png',
+    image: 'products/smartphone/budgetV1.jpg',
     alt: 'Image that shows front and back of the budgetV1.',
   })
 

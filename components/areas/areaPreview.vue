@@ -39,5 +39,6 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 40px;
+  object-fit: scale-down;
 }
 </style>

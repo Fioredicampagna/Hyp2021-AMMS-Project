@@ -80,11 +80,9 @@ ul {
   margin: auto;
   max-width: 70%;
 }
-
 .landmark {
   margin-right: 20px;
 }
-
 .dropdown-content {
   display: flex;
   position: relative;
@@ -95,7 +93,6 @@ ul {
   padding: 12px 16px;
   z-index: 1;
 }
-
 .title {
   font-size: 1.3rem;
   margin-bottom: 5px;

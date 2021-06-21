@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <the-header></the-header>
     <the-breadcrumbs></the-breadcrumbs>
     <Nuxt />
@@ -19,6 +19,11 @@ export default {
 </script>
 
 <style>
+.content {
+  margin: auto;
+  max-width: 100%;
+  align-items: center;
+}
 h1 {
   text-align: center;
   height: 100px;
