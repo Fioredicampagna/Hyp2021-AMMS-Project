@@ -16,6 +16,14 @@ async function init() {
     const { name } = req.params
     const products = await Product.findOne({
       where: { name },
+      order: [
+        [
+          { model: Product, as: 'related', through: 'RelatedProducts' },
+          'name',
+          'ASC',
+        ],
+        [Employee, 'name', 'ASC'],
+      ],
       include: [
         {
           model: Product,
@@ -40,6 +48,10 @@ async function init() {
     const { name } = req.params
     const type = await Type.findOne({
       where: { name },
+      order: [
+        ['name', 'ASC'],
+        [Product, 'name', 'ASC'],
+      ],
       include: [{ model: Product }, { model: Area, attributes: ['name'] }],
     })
     return res.json(type)
@@ -56,7 +68,7 @@ async function init() {
 
   // API to get all the areas
   app.get('/areas', async (req, res) => {
-    const areas = await Area.findAll()
+    const areas = await Area.findAll({ order: [['name', 'ASC']] })
     return res.json(areas)
   })
 
@@ -66,10 +78,20 @@ async function init() {
     const { name } = req.params
     const area = await Area.findOne({
       where: { name },
+      order: [
+        [Product, 'name', 'ASC'],
+        [Employee, 'name', 'ASC'],
+      ],
       include: [
-        { model: Product, attributes: ['name', 'image', 'alt'] },
-        { model: Employee, attributes: ['name', 'image', 'alt'] },
-        { model: Type, attributes: ['name'] },
+        {
+          model: Product,
+          attributes: ['name', 'image', 'alt'],
+        },
+        {
+          model: Employee,
+          attributes: ['name', 'image', 'alt'],
+        },
+        { model: Type, attributes: ['name'], order: [['name', 'ASC']] },
       ], // -> this is the way we "include" also products inside Areas
     })
     return res.json(area)
@@ -79,6 +101,7 @@ async function init() {
   app.get('/landmarks', async (req, res) => {
     const landmarks = await Area.findAll({
       attributes: ['name'],
+      order: [[Type, 'name', 'ASC']],
       include: { model: Type, attributes: ['name'] },
     })
     return res.json(landmarks)
@@ -95,24 +118,10 @@ async function init() {
     const { name } = req.params
     const employee = await Employee.findOne({
       where: { name },
+      order: [[Product, 'name', 'ASC']],
       include: [{ model: Product }, { model: Area, attributes: ['name'] }], // -> this is the way we "include" also comments inside Articles
     })
     return res.json(employee)
-  })
-
-  // APi to get all the smartphones
-  app.get('/smartphones', async (req, res) => {
-    const smartphones = await Product.findAll()
-    return res.json(smartphones)
-  })
-
-  // API to get a smartphone by name
-  app.get('/smartphones/:name', async (req, res) => {
-    const { name } = req.params
-    const smartphone = await Product.findOne({
-      where: { name },
-    })
-    return res.json(smartphone)
   })
 }
 

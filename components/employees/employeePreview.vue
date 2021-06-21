@@ -45,6 +45,7 @@ img {
   /* background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
+  object-fit: scale-down;
   margin: 20px;
 }
 </style>
