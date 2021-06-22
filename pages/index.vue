@@ -9,8 +9,8 @@
     autoplay
   >
     <div v-for="n in 3" :key="n" class="slide" :class="`slide-${n}`">
-      <p slot="caption" class="slide-element sl-45 title">{{ captions[0] }}</p>
-      <p slot="description" class="slide-element sl-45 description">
+      <p slot="caption" class="slide-element title">{{ captions[0] }}</p>
+      <p slot="description" class="slide-element description">
         {{ descriptions[0] }}
       </p>
     </div>
@@ -55,14 +55,11 @@ export default {
 .title {
   font-size: xxx-large;
   font-weight: bold;
+  margin-top: 20%;
 }
 .slide-element {
   position: inherit;
   text-align: center;
-}
-
-.sl-45 {
-  top: 45%;
 }
 
 .agile__dots {
@@ -107,8 +104,8 @@ export default {
   align-items: center;
   color: #fff;
   display: block;
-  /* justify-content: center; */
-  height: 600px;
+  justify-content: center;
+  height: 100vh;
   width: 100%;
 }
 
@@ -117,29 +114,36 @@ h1 {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-height: 1024px) and (max-height: 1366px) {
+  .title {
+    font-size: xxx-large;
+    font-weight: bold;
+    margin-top: 40%;
+  }
+}
+/* @media only screen and (max-height: 768px) {
   .slide {
     align-items: center;
     color: #fff;
     display: block;
-    /* justify-content: center; */
-    height: 600px;
+    justify-content: center;
+    height: 768px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-height: 900px) {
   .slide {
     align-items: center;
     color: #fff;
     display: block;
-    /* justify-content: center; */
-    height: 900px;
+    justify-content: center;
+    height: 1080px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-}
+  } 
+}*/
 </style>
