@@ -49,6 +49,8 @@ h4 {
   background: #f7f7f8;
   margin: 5px;
   cursor: pointer;
+  width: 100%;
+  height: 95%;
 }
 
 img {

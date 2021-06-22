@@ -8,14 +8,20 @@ export const mutations = {
     state.landmarks = landmarks
   },
   EXPAND_LANDMARK(state, landmarkIndex) {
-    if (state.landmarks[landmarkIndex].hoverable) {
+    if (state.landmarks[landmarkIndex].hoverable)
       state.landmarks[landmarkIndex].isHovered = true
-    }
   },
   COLLAPSE_LANDMARK(state, landmarkIndex) {
-    if (state.landmarks[landmarkIndex].hoverable) {
+    if (state.landmarks[landmarkIndex].hoverable)
       state.landmarks[landmarkIndex].isHovered = false
-    }
+  },
+  EXPAND_SUB_LANDMARK(state, { landmarkIndex, subLandmarkIndex }) {
+    if (state.landmarks[landmarkIndex].items[subLandmarkIndex].hoverable)
+      state.landmarks[landmarkIndex].items[subLandmarkIndex].isHovered = true
+  },
+  COLLAPSE_SUB_LANDMARK(state, { landmarkIndex, subLandmarkIndex }) {
+    if (state.landmarks[landmarkIndex].items[subLandmarkIndex].hoverable)
+      state.landmarks[landmarkIndex].items[subLandmarkIndex].isHovered = false
   },
   SET_BREADCRUMBS(state, breadcrumbs) {
     const breadcrumbsWithDividers = []
@@ -46,10 +52,6 @@ export const actions = {
   },
 
   async storeLandmarks({ commit }) {
-    const { data } = await this.$axios.get(
-      `${process.env.BASE_URL}/api/landmarks`
-    )
-
     // Static landmarks
     const landmarks = [
       {
@@ -59,6 +61,9 @@ export const actions = {
       {
         name: 'Areas',
         path: '/areas',
+        hoverable: true,
+        isHovered: false,
+        items: [],
       },
       {
         name: 'Employees',
@@ -75,8 +80,12 @@ export const actions = {
     ]
 
     // Dynamic landmarks
+    const { data } = await this.$axios.get(
+      `${process.env.BASE_URL}/api/landmarks`
+    )
+
     data.reverse().forEach(({ name, types }) =>
-      landmarks.splice(1, 0, {
+      landmarks[1].items.push({
         name,
         path: `/areas/${name}`,
         hoverable: types.length > 0,

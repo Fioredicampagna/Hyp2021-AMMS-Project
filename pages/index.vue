@@ -110,6 +110,7 @@ export default {
   /* justify-content: center; */
   height: 600px;
   width: 100%;
+  object-fit: scale-down;
 }
 
 h1 {

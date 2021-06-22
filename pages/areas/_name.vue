@@ -6,8 +6,8 @@
         <img img :src="require(`~/assets/${area.image}`)" :alt="area.alt" />
       </div>
       <div class="col-md-6">
-        <h4>{{ area.introduction }}</h4>
-        <p>
+        <h4 class="col">{{ area.introduction }}</h4>
+        <p class="col">
           {{ area.description }}
         </p>
       </div>
@@ -98,10 +98,24 @@ h4 {
   margin: 30px 0;
   text-align: center;
 }
+
+@media screen and (max-width: 700px) {
+  .h4 {
+    float: none;
+    width: 100%;
+    align-items: center;
+  }
+}
+
 h1 {
   text-align: center;
 }
-
+.col {
+  width: 100%;
+  white-space: normal;
+  overflow: scroll;
+  float: inline-start;
+}
 h3 {
   padding: 20px;
 }

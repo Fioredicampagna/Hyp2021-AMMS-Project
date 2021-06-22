@@ -12,20 +12,32 @@
           <nuxt-link :to="landmark.path">
             {{ landmark.name }}
           </nuxt-link>
-          <div
-            v-if="landmark.hoverable && landmark.isHovered"
-            class="hover-panel"
-          >
+          <div v-if="landmark.hoverable && landmark.isHovered" class="panel-1">
             <ul>
               <li
-                v-for="(type, typeIndex) of landmark.types"
-                :key="'menu-subitem-' + typeIndex"
+                v-for="(item, itemIndex) of landmark.items"
+                :key="'sub-landmark-' + itemIndex"
+                class="sub-landmark"
+                @mouseenter="expandSubLandmark(landmarkIndex, itemIndex)"
+                @mouseleave="collapseSubLandmark(landmarkIndex, itemIndex)"
               >
-                <nuxt-link
-                  class="dropdown-content"
-                  :to="`/product-types/${type.name}`"
-                >
-                  {{ type.name }}
+                <nuxt-link class="panel-1-content" :to="item.path">
+                  {{ item.name }}
+                  <div v-if="item.hoverable && item.isHovered" class="panel-2">
+                    <ul>
+                      <li
+                        v-for="(type, typeIndex) of item.types"
+                        :key="'type-' + typeIndex"
+                        class="type"
+                      >
+                        <nuxt-link
+                          class="panel-2-content"
+                          :to="`/product-types/${type.name}`"
+                          >{{ type.name }}</nuxt-link
+                        >
+                      </li>
+                    </ul>
+                  </div>
                 </nuxt-link>
               </li>
             </ul>
@@ -50,6 +62,20 @@ export default {
     collapseLandmark(index) {
       this.$store.commit('COLLAPSE_LANDMARK', index)
     },
+    expandSubLandmark(index, subIndex) {
+      const payload = {
+        landmarkIndex: index,
+        subLandmarkIndex: subIndex,
+      }
+      this.$store.commit('EXPAND_SUB_LANDMARK', payload)
+    },
+    collapseSubLandmark(index, subIndex) {
+      const payload = {
+        landmarkIndex: index,
+        subLandmarkIndex: subIndex,
+      }
+      this.$store.commit('COLLAPSE_SUB_LANDMARK', payload)
+    },
   },
 }
 </script>
@@ -64,6 +90,38 @@ export default {
   /* justify-content: space-between; */
   text-align: center;
 }
+
+@media screen and (max-width: 700px) {
+  .header-content {
+    float: none;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    float: none;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .landmark {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .center {
+    float: inline-start;
+    width: 100%;
+  }
+}
+
 .header-content {
   width: 100%;
   /* margin: auto; */
@@ -83,7 +141,7 @@ ul {
 .landmark {
   margin-right: 20px;
 }
-.dropdown-content {
+.panel-1-content {
   display: flex;
   position: relative;
   /* top: 5px; */
