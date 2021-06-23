@@ -55,7 +55,7 @@ export const actions = {
     // Static landmarks
     const landmarks = [
       {
-        name: 'HOME',
+        name: 'Home',
         path: '/',
       },
       {
