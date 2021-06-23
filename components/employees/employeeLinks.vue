@@ -1,20 +1,22 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="employee-grid">
       <div
         v-for="(employee, employeesIndex) of employees"
         :key="'employee-' + employeesIndex"
-        class="col-sm"
+        class="employee"
         @click="goToPath(`/employees/${employee.name}`)"
       >
-        <img :src="require(`~/assets/${employee.image}`)" :alt="employee.alt" />
-        <nuxt-link
-          style="text-align: center"
-          class="link"
-          :to="`/employees/${employee.name}`"
-        >
-          {{ employee.name }}
-        </nuxt-link>
+        <div class="image-holder">
+          <img
+            :src="require(`~/assets/${employee.image}`)"
+            :alt="employee.alt"
+          />
+          <h5>{{ employee.name }}</h5>
+          <h6 v-if="employee.designation !== null">
+            {{ employee.designation }}
+          </h6>
+        </div>
       </div>
     </div>
   </div>
@@ -34,35 +36,55 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 30px 0;
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 35px;
+  margin-top: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .employee-grid {
+    display: block;
+    margin: 40px 20px;
+  }
+}
+
 .link {
-  color: cadetblue;
+  text-align: center;
+  color: rgb(0, 0, 0);
   padding: 20px;
   margin: 10px;
+  object-fit: scale-down;
 }
-.col-sm {
-  text-align: center;
-  /* box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2); */
-  border-radius: 25px;
-  background: #f7f7f8;
-  margin: 5px;
+.image-holder {
   cursor: pointer;
   width: 100%;
   height: 95%;
+  border-radius: 25px;
+  background: #f7f7f8;
+  margin: 5px;
 }
-
+.employee {
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  max-width: 350px;
+  max-height: 450px;
+}
 img {
+  padding-top: 20px;
+  /* max-width: 600px; */
   width: 80%;
-  height: 350px;
+  height: 300px;
   max-width: 400px;
   margin: auto;
+  object-fit: scale-down;
   /* background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
-  object-fit: scale-down;
-  margin: 20px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 p {
   text-align: left;

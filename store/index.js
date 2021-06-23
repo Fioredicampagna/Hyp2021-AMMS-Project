@@ -66,6 +66,10 @@ export const actions = {
         items: [],
       },
       {
+        name: 'Products',
+        path: '/products',
+      },
+      {
         name: 'Employees',
         path: '/employees',
       },
