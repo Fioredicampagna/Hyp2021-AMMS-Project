@@ -3,7 +3,10 @@
     <header>
       <h1>What does AMMS do?</h1>
       <h4>About us.</h4>
-      <img src="~/assets/main/mainboard.jpg" alt="Nuxt Logo" />
+      <img
+        src="~/assets/main/companybuilding.jpg"
+        alt="Image that shows the main HQ of AMMS."
+      />
     </header>
     <section>
       <h2>AMMS</h2>
