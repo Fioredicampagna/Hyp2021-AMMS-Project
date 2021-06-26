@@ -94,17 +94,22 @@ export default {
 </script>
 
 <style scoped>
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
 h2 {
-  margin-bottom: 30px;
+  margin: 10px;
 }
 h4 {
-  margin-bottom: 30px;
+  margin: 10px;
 }
 img {
-  max-width: 600px;
+  width: 100%;
 }
 p {
   text-align: left;
+  padding-bottom: 20px;
 }
 .col-sm-4 {
   text-align: center;
