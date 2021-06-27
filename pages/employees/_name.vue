@@ -12,20 +12,23 @@
         <p>
           {{ employee.presentation }}
         </p>
+        <section class="area-section">
+          <div class="area-link-container">
+            <nuxt-link
+              v-if="employee.area !== null"
+              style="text-align: center"
+              class="area-link"
+              :to="`/areas/${employee.area.name}`"
+            >
+              {{ employee.area.name }}
+            </nuxt-link>
+          </div>
+        </section>
       </div>
     </div>
-    <div>
-      <nuxt-link
-        v-if="employee.area !== null"
-        style="text-align: center"
-        class="link"
-        :to="`/areas/${employee.area.name}`"
-      >
-        {{ employee.area.name }}
-      </nuxt-link>
-      <h2 v-if="employee.products.length != 0">Has worked on:</h2>
-    </div>
+
     <section v-if="employee.products.length != 0">
+      <h2>Has worked on:</h2>
       <product-links :products="employee.products"></product-links>
     </section>
   </section>
@@ -91,11 +94,44 @@ export default {
   /* padding: 20px 0; */
   padding-right: 40px;
 }
-.link {
-  color: cadetblue;
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+
+.area-section {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0;
+}
+.area-link-container {
+  padding: 10px 20px;
+  margin-right: 20px;
+
+  width: 250px;
   text-align: center;
+
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+.area-link {
+  color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .employee-preview-row {
+    display: block;
+  }
+  .employee-image {
+    max-width: 100%;
+    width: min-content;
+    height: auto;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+  .employee-types-section {
+    flex-direction: column;
+    margin: 0;
+    margin-top: 20px;
+  }
+  .area-link-container {
+    margin-bottom: 20px;
+  }
 }
 </style>

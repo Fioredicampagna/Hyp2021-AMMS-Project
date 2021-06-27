@@ -35,7 +35,7 @@
     </div>
 
     <div v-if="product.related.length != 0" class="related-products">
-      <h1>Other Products</h1>
+      <h2>Other Products</h2>
       <product-links :products="product.related"></product-links>
     </div>
 
