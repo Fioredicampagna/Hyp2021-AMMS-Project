@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main>
     <header>
       <h1>Areas of our company</h1>
     </header>
@@ -66,31 +66,28 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  margin-bottom: 30px;
-}
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
-  grid-gap: 10px;
-  margin-top: 40px;
+  grid-template-columns: repeat(4, calc(100% / 4));
+  grid-gap: 20px;
+  margin-bottom: 40px;
 }
 .article {
   cursor: pointer;
-  margin-bottom: 20px;
 }
 .ad img {
   width: 100%;
   height: 200px;
 }
-@media screen and (max-width: 600px) {
-  .ad img {
-    width: 100%;
-    height: 100px;
-  }
+@media screen and (max-width: 1000px) {
   .article-grid {
-    display: block;
-    margin: 40px 20px;
+    grid-template-columns: repeat(2, calc(100% / 2));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .article-grid {
+    grid-template-columns: repeat(1, calc(100%));
   }
 }
 </style>

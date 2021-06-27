@@ -55,10 +55,6 @@ export const actions = {
     // Static landmarks
     const landmarks = [
       {
-        name: 'Home',
-        path: '/',
-      },
-      {
         name: 'Areas',
         path: '/areas',
         hoverable: true,
@@ -74,11 +70,11 @@ export const actions = {
         path: '/employees',
       },
       {
-        name: 'Contact Us',
+        name: 'Contact',
         path: '/contact-us',
       },
       {
-        name: 'Who we are',
+        name: 'About us',
         path: '/who-we-are',
       },
     ]
@@ -89,7 +85,7 @@ export const actions = {
     )
 
     data.reverse().forEach(({ name, types }) =>
-      landmarks[1].items.push({
+      landmarks[0].items.push({
         name,
         path: `/areas/${name}`,
         hoverable: types.length > 0,

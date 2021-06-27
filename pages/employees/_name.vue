@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container">
+    <div>
       <div class="row">
         <section class="col-md-3">
           <img
@@ -79,9 +79,6 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 20px 0;
-}
 .col-md-7 {
   box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
 }
@@ -108,5 +105,6 @@ p {
   padding: 20px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+  text-align: center;
 }
 </style>

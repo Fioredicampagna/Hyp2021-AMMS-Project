@@ -19,12 +19,10 @@ export default {
 
 <style scoped>
 .card {
+  align-items: center;
   padding: 20px 10px;
   border: 1px solid grey;
   border-radius: 4px;
-}
-h3 {
-  margin-bottom: 10px;
 }
 p {
   height: 60px;
@@ -34,11 +32,10 @@ p {
   width: 100%;
   height: 200px;
   max-width: 600px;
-  margin: auto;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-bottom: 40px;
+  margin: 20px 0;
   object-fit: scale-down;
 }
 </style>

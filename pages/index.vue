@@ -49,16 +49,26 @@ export default {
 </script>
 
 <style scoped>
+.page-content {
+  background: black;
+
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
 .description {
   font-size: xx-large;
 }
 .title {
   font-size: xxx-large;
   font-weight: bold;
-  margin-top: 20%;
+  /* margin-top: 20%; */
 }
 .slide-element {
   position: inherit;
+  /* top: 76px; */
+  align-items: center;
   text-align: center;
 }
 
@@ -73,7 +83,7 @@ export default {
   margin: 5px 0;
 }
 .agile__dot button {
-  background-color: transparent;
+  background-color: black;
   border: 1px solid #fff;
   cursor: pointer;
   display: block;
@@ -105,9 +115,10 @@ export default {
   color: #fff;
   display: block;
   justify-content: center;
+  top: 75px;
   height: 100vh;
   width: 100%;
-  object-fit: scale-down;
+  /* object-fit: scale-down; */
 }
 
 h1 {
@@ -119,7 +130,7 @@ h1 {
   .title {
     font-size: xxx-large;
     font-weight: bold;
-    margin-top: 40%;
+    margin-top: 25%;
   }
 }
 /* @media only screen and (max-height: 768px) {
@@ -134,17 +145,14 @@ h1 {
     background-size: cover;
   }
 }
-
-@media only screen and (min-height: 900px) {
-  .slide {
-    align-items: center;
-    color: #fff;
-    display: block;
-    justify-content: center;
-    height: 1080px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-  } 
-}*/
+*/
+@media only screen and (max-height: 900px) {
+  .title {
+    padding-top: calc(100% / 3);
+    font-size: x-large;
+  }
+  .description {
+    font-size: x-large;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main>
     <header>
       <h1>What does AMMS do?</h1>
       <h4>About us.</h4>
@@ -97,12 +97,6 @@ export default {
 header {
   text-align: center;
   margin-bottom: 20px;
-}
-h2 {
-  margin: 10px;
-}
-h4 {
-  margin: 10px;
 }
 img {
   width: 100%;

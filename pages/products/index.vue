@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <div
       v-for="(area, areaIndex) of productsStruct"
       :key="'area-' + areaIndex"
@@ -72,11 +72,6 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 30px 0;
-  text-align: center;
-}
-
 @media screen and (max-width: 700px) {
   .h1 {
     float: none;
@@ -84,19 +79,10 @@ h4 {
     align-items: center;
   }
 }
-
-h1 {
-  text-align: center;
-  height: 50%;
-}
 .col {
   width: 100%;
   white-space: normal;
-  overflow: scroll;
   float: inline-start;
-}
-h3 {
-  padding: 20px;
 }
 .col-sm-4 {
   color: cadetblue;
@@ -106,19 +92,9 @@ h3 {
   justify-content: space-between;
 }
 .row {
-  margin: 20px;
   width: 100%;
 }
 p {
   text-align: center;
-  margin-top: 40px;
-}
-
-.container {
-  width: 100%;
-}
-
-section {
-  margin-top: 50px;
 }
 </style>

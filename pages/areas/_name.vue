@@ -1,34 +1,38 @@
 <template>
-  <section class="container">
-    <h1>{{ area.name }}</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <img img :src="require(`~/assets/${area.image}`)" :alt="area.alt" />
-      </div>
-      <div class="col-md-6">
-        <h4 class="col">{{ area.introduction }}</h4>
-        <p class="col">
+  <section>
+    <div class="area-preview-row">
+      <img
+        img
+        :src="require(`~/assets/${area.image}`)"
+        :alt="area.alt"
+        class="area-image"
+      />
+      <div>
+        <h2>{{ area.name }}</h2>
+        <h4>{{ area.introduction }}</h4>
+        <p>
           {{ area.description }}
         </p>
       </div>
     </div>
     <section v-if="area.types.length != 0">
-      <h4>Types</h4>
-      <div
-        v-for="(type, typeIndex) of area.types"
-        :key="'type-' + typeIndex"
-        style="text-align: center"
-        class="row"
-        @click="goToPath(`/product-types/${type.name}`)"
-      >
-        <nuxt-link
-          style="text-align: center"
-          class="col-sm-4"
-          :to="`/product-types/${type.name}`"
+      <h3>Types</h3>
+      <section class="area-types-section">
+        <div
+          v-for="(type, typeIndex) of area.types"
+          :key="'type-' + typeIndex"
+          class="type-link-container"
+          @click="goToPath(`/product-types/${type.name}`)"
         >
-          {{ type.name }}
-        </nuxt-link>
-      </div>
+          <nuxt-link
+            class="type-link"
+            style="text-align: center"
+            :to="`/product-types/${type.name}`"
+          >
+            {{ type.name }}
+          </nuxt-link>
+        </div>
+      </section>
     </section>
     <section v-if="area.products.length != 0" class="products">
       <h3>Products</h3>
@@ -94,50 +98,58 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 30px 0;
-  text-align: center;
+.area-preview-row {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 20px;
 }
 
-@media screen and (max-width: 700px) {
-  .h4 {
-    float: none;
-    width: 100%;
-    align-items: center;
-  }
+.area-types-section {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0;
 }
+.type-link-container {
+  padding: 10px 20px;
+  margin-right: 20px;
 
-h1 {
+  width: 250px;
   text-align: center;
+
+  border: 1px solid grey;
+  border-radius: 4px;
 }
-.col {
-  width: 100%;
-  white-space: normal;
-  overflow: scroll;
-  float: inline-start;
+.type-link {
+  color: black;
 }
-h3 {
-  padding: 20px;
-}
-.col-sm-4 {
-  color: cadetblue;
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
-  justify-content: space-between;
-}
-.row {
-  margin: 20px;
-}
-img {
-  max-width: 600px;
+.area-image {
+  max-width: 500px;
+  width: auto;
+  height: min-content;
+  /* padding: 20px 0; */
+  padding-right: 40px;
 }
 p {
-  text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
-section {
-  margin-top: 50px;
+@media screen and (max-width: 1000px) {
+  .area-preview-row {
+    display: block;
+  }
+  .area-image {
+    max-width: 100%;
+    width: min-content;
+    height: auto;
+    padding-left: 0;
+  }
+  .area-types-section {
+    flex-direction: column;
+    margin: 0;
+    margin-top: 20px;
+  }
+  .type-link-container {
+    margin-bottom: 20px;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section>
     <header>
       <h1>{{ type.name }}</h1>
       <h4>{{ type.description }}</h4>
@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style scoped>
-h4 {
-  margin: 30px 0;
-}
 .comments {
   margin-top: 60px;
   text-align: left;
@@ -85,9 +82,5 @@ h4 {
 }
 img {
   max-width: 600px;
-}
-p {
-  text-align: left;
-  /* margin-top: 40px; */
 }
 </style>

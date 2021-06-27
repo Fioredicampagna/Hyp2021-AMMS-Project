@@ -10,9 +10,6 @@
         <div class="image-holder">
           <img :src="require(`~/assets/${product.image}`)" :alt="product.alt" />
           <h5>{{ product.name }}</h5>
-          <!--nuxt-link class="link" :to="`/products/${product.name}`">
-            {{ product.name }}
-          </nuxt-link-->
         </div>
       </div>
     </div>
@@ -35,17 +32,15 @@ export default {
 <style scoped>
 .link {
   text-align: center;
-  color: rgb(0, 0, 0);
-  padding: 20px;
-  margin: 10px;
-  object-fit: scale-down;
+  color: black;
+  /* object-fit: scale-down; */
 }
 .image-holder {
   cursor: pointer;
   width: 100%;
   height: 95%;
-  border-radius: 25px;
-  background: #f7f7f8;
+  border: 1px solid grey;
+  border-radius: 4px;
   margin: 5px;
 }
 .col-md-4 {
@@ -53,19 +48,15 @@ export default {
 }
 img {
   padding-top: 20px;
-  /* max-width: 600px; */
   width: 80%;
-  height: 300px;
+  height: auto;
   max-width: 400px;
-  margin: auto;
   object-fit: scale-down;
-  /* background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 20px;
 }
-p {
-  text-align: left;
-  /* margin-top: 40px; */
+h5 {
+  padding: 20px;
 }
 </style>

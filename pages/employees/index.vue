@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main>
     <header>
       <h1>Our Team</h1>
     </header>
