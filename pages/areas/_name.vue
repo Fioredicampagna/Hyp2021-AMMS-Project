@@ -102,6 +102,7 @@ export default {
   display: flex;
   padding-top: 40px;
   padding-bottom: 20px;
+  align-items: center;
 }
 
 .area-types-section {

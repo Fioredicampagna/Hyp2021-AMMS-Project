@@ -238,12 +238,10 @@ li {
     border-top-color: #444;
   }
   .header .menu .landmark .link {
-    /* height: max-content; */
     width: max-content;
   }
   .panel-1 {
     height: fit-content;
-    /* border-right: 3px solid #444; */
   }
 }
 </style>

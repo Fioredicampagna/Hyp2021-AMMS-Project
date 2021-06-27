@@ -1,30 +1,28 @@
 <template>
   <section>
-    <div>
-      <div class="row">
-        <section class="col-md-3">
-          <img
-            :src="require(`~/assets/${employee.image}`)"
-            :alt="employee.alt"
-          />
-          <h4>{{ employee.name }}</h4>
-        </section>
-
-        <section class="col-md-7">
-          <p>
-            {{ employee.presentation }}
-          </p>
-        </section>
-
-        <nuxt-link
-          v-if="employee.area !== null"
-          style="text-align: center"
-          class="link"
-          :to="`/areas/${employee.area.name}`"
-        >
-          {{ employee.area.name }}
-        </nuxt-link>
+    <div class="employee-preview-row">
+      <img
+        img
+        :src="require(`~/assets/${employee.image}`)"
+        :alt="employee.alt"
+        class="employee-image"
+      />
+      <div>
+        <h2>{{ employee.name }}</h2>
+        <p>
+          {{ employee.presentation }}
+        </p>
       </div>
+    </div>
+    <div>
+      <nuxt-link
+        v-if="employee.area !== null"
+        style="text-align: center"
+        class="link"
+        :to="`/areas/${employee.area.name}`"
+      >
+        {{ employee.area.name }}
+      </nuxt-link>
       <h2 v-if="employee.products.length != 0">Has worked on:</h2>
     </div>
     <section v-if="employee.products.length != 0">
@@ -79,26 +77,19 @@ export default {
 </script>
 
 <style scoped>
-.col-md-7 {
-  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
+.employee-preview-row {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  align-items: center;
 }
 
-.container {
-  position: relative;
-  padding-left: 6.5%;
-}
-section {
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-}
-img {
-  max-width: 300px;
-}
-p {
-  margin: 10px;
-  text-align: left;
+.employee-image {
+  max-width: 500px;
+  width: auto;
+  height: min-content;
+  /* padding: 20px 0; */
+  padding-right: 40px;
 }
 .link {
   color: cadetblue;

@@ -118,6 +118,7 @@ export default {
 
 .area-preview-row {
   display: flex;
+  align-items: center;
   padding-top: 40px;
 }
 

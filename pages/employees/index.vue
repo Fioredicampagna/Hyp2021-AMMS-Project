@@ -11,6 +11,7 @@
 
 <script>
 import EmployeeLinks from '~/components/employees/employeeLinks.vue'
+
 export default {
   components: {
     EmployeeLinks,

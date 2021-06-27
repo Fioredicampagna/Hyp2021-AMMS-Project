@@ -66,28 +66,21 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  margin-bottom: 30px;
+}
 .article-grid {
   display: grid;
-  grid-template-columns: repeat(4, calc(100% / 4));
-  grid-gap: 20px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 10px;
+  margin-top: 40px;
 }
 .article {
   cursor: pointer;
+  margin-bottom: 20px;
 }
 .ad img {
   width: 100%;
   height: 200px;
-}
-@media screen and (max-width: 1000px) {
-  .article-grid {
-    grid-template-columns: repeat(2, calc(100% / 2));
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .article-grid {
-    grid-template-columns: repeat(1, calc(100%));
-  }
 }
 </style>

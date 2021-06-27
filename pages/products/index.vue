@@ -1,17 +1,14 @@
 <template>
-  <section>
-    <div
-      v-for="(area, areaIndex) of productsStruct"
-      :key="'area-' + areaIndex"
-      style="text-align: center"
-      class="row"
-    >
-      <h1 class="col">{{ area.areaName }}</h1>
-      <section v-if="area.products.length != 0" class="products">
+  <main>
+    <div v-for="(area, areaIndex) of productsStruct" :key="'area-' + areaIndex">
+      <header>
+        <h1>{{ area.areaName }}</h1>
+      </header>
+      <section>
         <product-links :products="area.products"></product-links>
       </section>
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -70,31 +67,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-@media screen and (max-width: 700px) {
-  .h1 {
-    float: none;
-    width: 100%;
-    align-items: center;
-  }
-}
-.col {
-  width: 100%;
-  white-space: normal;
-  float: inline-start;
-}
-.col-sm-4 {
-  color: cadetblue;
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(8, 0, 0, 0.2);
-  justify-content: space-between;
-}
-.row {
-  width: 100%;
-}
-p {
-  text-align: center;
-}
-</style>

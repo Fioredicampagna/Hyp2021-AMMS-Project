@@ -1,6 +1,6 @@
 <template>
   <div class="areaPreview">
-    <div class="card">
+    <div class="area-card">
       <h3>{{ name }}</h3>
       <img class="img" :src="require(`~/assets/${image}`)" :alt="alt" />
     </div>
@@ -18,24 +18,28 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.area-card {
   align-items: center;
-  padding: 20px 10px;
-  border: 1px solid grey;
+  cursor: pointer;
+  width: 100%;
+  height: 300px;
   border-radius: 4px;
-}
-p {
-  height: 60px;
 }
 
 .img {
-  width: 100%;
-  height: 200px;
-  max-width: 600px;
-  background-size: cover;
+  padding-top: 20px;
+  width: 80%;
+  height: auto;
+  max-height: 200px;
+  max-width: 400px;
+  margin: auto;
+  object-fit: scale-down;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 20px 0;
-  object-fit: scale-down;
+  margin-bottom: 20px;
+  /* align-items: center; */
+}
+h3 {
+  text-align: center;
 }
 </style>
