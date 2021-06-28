@@ -18,7 +18,7 @@ Contribution: Worked on productLinks, areaPreview and employeeLinks components, 
 Person Code: 10787841&nbsp;
 Mail: matteo.merz@mail.polimi.it
 
-Contribution: Worked on TheHeader, TheFooter and TheBreadcrumbs components, worked on design and implementation of all-product page, product-detail page, contact-us page, worked on default layout. Worked on DB design and content fetching with rest APIs. Worked on title and metas of all pages, worked on company logo and favicon. Worked on design and implementation of nuxt store. Worked on CSS and responsivness of all components and all pages, worked on graphic consistency around pages.
+Contribution: Worked on TheHeader, TheFooter and TheBreadcrumbs components, worked on design and implementation of all-product page, product-detail page, contact-us page, worked on default layout. Worked on DB design and content fetching with rest APIs. Worked on title and metas of all pages, worked on company logo and favicon. Worked on design and implementation of nuxt store. Worked on CSS and responsivness of all components and all pages, worked on graphic consistency among pages.
 
 #### 3. Morkoc Berk
 
@@ -63,9 +63,12 @@ This component has the purpose of displaying the breadcrumbs of each page in a c
 
 #### TheHeader.vue
 
-This components has the main purpose of displaying the landmarks of the webstie. Like in TheBreadcrumbs component, the landmarks are fetched from the store, where they are generated in a static and dynamic mixed way. The first landmark, that points to the homepage is hardcoded in the component and 
+This components has the main purpose of displaying the landmarks of the webstie. Like in TheBreadcrumbs component, the landmarks are fetched from the store, where they are generated in a static and dynamic mixed way. The first landmark, that points to the homepage, is hardcoded in the component and is represented by the logo of the company. The other landmarks are simple links listed after the logo in a horizontal style. Some landmarks, marked with a + char, can be expanded by hovering on them with the mouse: after this action a dropdown list is shown, filled with sub-landmarks. The operation has been implemented by a combination of Vue methods (expandLandmark, collapseLandmark) and store commits (EXPAND_LANDMARK and COLLAPSE_LANDMARK). Also the sub-landmarks can be expanded, thanks to an implementation similar to the one just explained.
+In the mobile version of the website, the only landmark always visible is the logo one; the others are hidden and the user can show them by tapping on the hamburger icon on the header left side. After this action a dropdown list is shown, filled with the landmarks. Instead of hovering on the + marked landmarks, the user should tap on them in order to show the sub-landmarks (a second tap will open the link of the marked one).
 
 #### TheFooter.vue
+
+This component has been added to accomplish a website standard. It is basically a bottom bar in which are displayed phone contacts, the logo of the company and various info about privacy and copyright.
 
 ### Routing
 
@@ -78,7 +81,7 @@ the current version of the website is simplistic, it could scale to a bigger siz
 
 ### Store
 
-A store file was added to handle the rendering of both the dynamic landmarks and the breadcrumbs of the website. Since both of these are retrieved dynamically and have to be loaded before the website starts rendering, they are put inside the index.js file inside the store directory and the method nuxtServerInit is called before rendering to make those components display correctly.
+The website uses the Nuxt store to handle the rendering of both the dynamic landmarks and the breadcrumbs of the website. Since both of these are retrieved dynamically and have to be loaded before the website starts rendering, they are put inside the index.js file inside the store directory and the method nuxtServerInit is called before rendering to make those components display correctly.
 
 ## Framework usage and best practices
 
@@ -102,6 +105,8 @@ Secondly, the page structure in Nuxt is good for implementation purposes, but, w
 For this reason the breadcrumbs used are path-based and depend strictly on the page the user is navigating in.
 
 ### SEO
+
+To accomplish with the SEO basic requirements, each page has been equipped with meaningful title and meta data (in particular charset, hid, name and content).
 
 ### Accessibility
 
