@@ -35,7 +35,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'Home Page description',
-          name: 'About description',
+          name: 'Home Page description',
           content: 'This is the HomePage of the website.',
         },
       ],

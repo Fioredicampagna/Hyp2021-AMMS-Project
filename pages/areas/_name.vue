@@ -80,7 +80,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: this.area.name + ' description',
-          name: 'description',
+          name: this.area.name + ' description',
           content:
             'This page provides some more details about the ' +
             this.area.name +

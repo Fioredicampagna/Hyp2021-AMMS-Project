@@ -53,7 +53,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'Products description',
-          name: 'description',
+          name: 'Products description',
           content:
             'This page provides a list of all products of the AMMS company.',
         },

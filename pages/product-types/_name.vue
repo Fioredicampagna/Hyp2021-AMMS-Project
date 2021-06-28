@@ -46,7 +46,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: this.type.name + ' description',
-          name: 'description',
+          name: this.type.name + ' description',
           content:
             'This page provides some more details about the ' +
             this.type.name +

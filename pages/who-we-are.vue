@@ -74,8 +74,8 @@ export default {
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
-          hid: 'Who We Are description',
-          name: 'About description',
+          hid: 'Who-We-Are description',
+          name: 'Who-We-Are description',
           content:
             'This page provides a general description of the AMMS company.',
         },

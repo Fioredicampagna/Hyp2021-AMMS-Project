@@ -67,11 +67,11 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: this.employee.name + ' description',
-          name:
+          name: this.employee.name + ' description',
+          content:
             'This page provides some more details about the employee ' +
             this.employee.name +
             '.',
-          content: '',
         },
       ],
     }

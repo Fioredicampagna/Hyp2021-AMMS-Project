@@ -50,7 +50,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'Areas description',
-          name: 'description',
+          name: 'Area description',
           content:
             'This page provides a general description of the main website areas.',
         },

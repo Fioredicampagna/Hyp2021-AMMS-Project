@@ -43,8 +43,8 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'Employees description',
-          name: 'description',
-          content: '',
+          name: 'Employees description',
+          content: 'This page provides a list of the main company employees.',
         },
       ],
     }

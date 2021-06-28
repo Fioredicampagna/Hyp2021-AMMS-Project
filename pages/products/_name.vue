@@ -92,7 +92,7 @@ export default {
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: this.product.name + ' description',
-          name: 'description',
+          name: this.product.name + ' description',
           content:
             'This page provides some more details about the the product ' +
             this.product.name +
