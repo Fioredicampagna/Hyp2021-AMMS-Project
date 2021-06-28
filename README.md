@@ -15,6 +15,11 @@ Contribution: Worked on productLinks, areaPreview and employeeLinks components, 
 
 #### 2. Matteo Merz
 
+Person Code: 10787841&nbsp;
+Mail: matteo.merz@mail.polimi.it
+
+Contribution: Worked on TheHeader, TheFooter and TheBreadcrumbs components, worked on design and implementation of all-product page, product-detail page, contact-us page, worked on default layout. Worked on DB design and content fetching with rest APIs. Worked on title and metas of all pages, worked on company logo and favicon. Worked on design and implementation of nuxt store. Worked on CSS and responsivness of all components and all pages, worked on graphic consistency around pages.
+
 #### 3. Morkoc Berk
 
 Person Code: 10672278&nbsp;
@@ -54,7 +59,13 @@ This component takes a set of products and shows them as a set of preview cards 
 
 #### TheBreadcrumbs.vue
 
+This component has the purpose of displaying the breadcrumbs of each page in a consistent way. It fetch the data to display from the store and show them in a horinzontal style. To improve the readability, a divisor is put among each couple. All displayed breadcrumbs are links to a previous page, except the last one that has the only purpose to indicate the current page.
+
 #### TheHeader.vue
+
+This components has the main purpose of displaying the landmarks of the webstie. Like in TheBreadcrumbs component, the landmarks are fetched from the store, where they are generated in a static and dynamic mixed way. The first landmark, that points to the homepage is hardcoded in the component and 
+
+#### TheFooter.vue
 
 ### Routing
 
