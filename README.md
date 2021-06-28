@@ -8,31 +8,32 @@
 
 #### 1. Amarù Giovanni
 
-Person Code: 10605272
+Person Code: 10605272&nbsp;
 Mail: giovanni1.amaru@mail.polimi.it
 
-Contribution: Worked on productLinks, areaPreview and employeeLinks components, pages under areas folder, Who we are page, contact us page, all products page, DB design with sequelize and content fetching with rest APIs.
+Contribution: Worked on productLinks, areaPreview and employeeLinks components, worked on design and implementation of pages under areas folder, Who we are page, contact us page, all products page, product types page. Worked on DB design, ORM mapping and relationship design with sequelize and content fetching with rest APIs.
 
 #### 2. Matteo Merz
 
 #### 3. Morkoc Berk
 
-Person Code: 10672278
+Person Code: 10672278&nbsp;
 Mail: berk.morkoc@mail.polimi.it
 
 Contribution: Worked on products and areas pages, DB design and relations of entities, designed and created the main page as well as general structure of the pages, fixed CSS and responsivess failures.
 
 #### 4. Sai Ram Sadineni
 
-Person Code: 10744802
+Person Code: 10744802&nbsp;
 Mail: sairam.sadineni@mail.polimi.it
 
-Contribution: Worked on productLinks and employeeLinks components, pages under areas folder, few products page, worked on CSS and responsiveness of navigation header and multiple pages. Worked on website content of few pages. 
+Contribution: Worked on productLinks and employeeLinks components, pages under areas folder, few products page, worked on CSS and responsiveness of navigation header and multiple pages. Worked on website content of few pages.
 
 ## Technical documentation
 
 ### Server and DB technologies
 
+For the backend express is used, to handle REST api calls and to allow the content of the database to be retrieved as JSON files, which follow the structure of the ORM objects defined in db-config.js.
 The website is hosted and deployed on the Heroku website, which also has native integration with a PostgreSQL implementation. The website reads the base URL of the server and URL of the DB from the environment variables which are set in Heroku.
 
 ### Components of the website
@@ -57,7 +58,7 @@ This component takes a set of products and shows them as a set of preview cards 
 
 ### Routing
 
-The routing in the website is handled by the framework NuxtJS, which allows great ease of traversing from page to page, because the routing is built in when accessing a page with a given name.
+The routing in the website is handled by the framework NuxtJS, which allows great ease of traversing from page to page, because the routing is built-in when accessing a page with a given name.
 
 ### Rendering
 
@@ -74,16 +75,20 @@ A store file was added to handle the rendering of both the dynamic landmarks and
 
 One of the main advantages of using NuxtJS is its capabilty of automatic routing and dynamic content creation. Each of the kind of topics that are present in the website are retrieved dynamically and the names of the pages are also retrieved dynamically. Also the default index.vue page that can be associated to a path in the website was used to create the pages in which all of the areas, products and employees are shown, to better display the hyerarchy between groups and kinds of topics. In this way, i.e. the page /areas will show all the areas of the website and the page /areas/area1 will show one of the areas that belong to the group of all areas, so that the hyerarchy between content and grouping is correctly respected.
 
-### Naming Convention
+### Asset loading
 
-We followed few best practises while building this website, one among them is good naming conventions we followed uniform naming structre through out our project which eased organising our project and also for assets loading in our website. Which helped our website to be very dymanic and easy to add more components and also to increase the complexity of the page contents. We came up with the simplistic way of organising our project code strictly with the right naming and groupings.
+The majority of images in the assets folder is loaded dynamically, by putting the URI of the image inside the image attribute of the entities in the DB. In this way it is easy to change the image associated to a piece of content and it is easy to design every page or component that needs to display an image loaded dynamically by accessing the image property of each ORM object.
+
+### Reusability
+
+The components that were developed for this website have been utilized to their full extent in all the pages that necessitated them. This helped increase the complexity of the pages without having to produce more content. Also for this reason all pages and components have been named in an easy and straightforward way, so that it is clear when and why they are used.
 
 ### Breadcrumbs
 
 The breadcrumbs in the website don't reflect neither the user interaction history neither the page structure in Nuxt. The reasons behind this choice are the following:
 First of all, the user can reach the same page from different navigation paths, so it's not relevant to put breadcrumbs that reflect the user interaction history.
 Secondly, the page structure in Nuxt is good for implementation purposes, but, when reflected on the breadcrumbs, it is not that good from the point of view of the user experience. For instance, all the product pages in Nuxt are under the products folder, but in the breadcrumbs the user should able to go back to the relative area and, if present, the relative type, so that the grouping of content is made clear and shown correctly.
-For this reason the breadcrumbs used are path-based and depend strictly from the page the user is navigating in.
+For this reason the breadcrumbs used are path-based and depend strictly on the page the user is navigating in.
 
 ### SEO
 
