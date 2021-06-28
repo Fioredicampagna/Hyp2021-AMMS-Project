@@ -17,6 +17,11 @@ Contribution: Worked on productLinks, areaPreview and employeeLinks components, 
 
 #### 3. Morkoc Berk
 
+Person Code: 10672278
+Mail: berk.morkoc@mail.polimi.it
+
+Contribution: Worked on products and areas pages, DB design and relations of entities, designed and created the main page as well as general structure of the pages, fixed CSS and responsivess failures.
+
 #### 4. Sai Ram Sadineni
 
 Person Code: 10744802
