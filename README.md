@@ -19,6 +19,11 @@ Contribution: Worked on productLinks, areaPreview and employeeLinks components, 
 
 #### 4. Sai Ram Sadineni
 
+Person Code: 10744802
+Mail: sairam.sadineni@mail.polimi.it
+
+Contribution: Worked on productLinks and employeeLinks components, pages under areas folder, few products page, worked on CSS and responsiveness of navigation header and multiple pages. Worked on website content of few pages. 
+
 ## Technical documentation
 
 ### Server and DB technologies
