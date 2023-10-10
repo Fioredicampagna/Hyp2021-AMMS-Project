@@ -8,10 +8,10 @@ https://hyp2021-amms.herokuapp.com
 
 ### Group Members:
 
-#### 1. Amarù Giovanni
+#### 1. Amarù Fiore
 
 Person Code: 10605272&nbsp;
-Mail: giovanni1.amaru@mail.polimi.it
+Mail: fiore.amaru@mail.polimi.it
 
 Contribution: Worked on productLinks, areaPreview and employeeLinks components, worked on design and implementation of pages under areas folder, Who we are page, contact us page, all products page, product types page. Worked on DB design, ORM mapping and relationship design with sequelize and content fetching with rest APIs. Worked on CSS and responsiveness for the components mentioned above and also for all the pages of the website.
 
